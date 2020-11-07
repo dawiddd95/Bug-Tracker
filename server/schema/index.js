@@ -1,3 +1,15 @@
+import userSchema from './user';
+import commentSchema from './comment';
 import ticketSchema from './ticket';
 
-export default [ticketSchema];
+const linkSchema = `
+   type Query {
+      _: Boolean
+   }
+   type Mutation {
+      _: Boolean
+   }
+`;
+
+export default [linkSchema, userSchema, commentSchema, ticketSchema];
+
