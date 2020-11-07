@@ -6,20 +6,20 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       title: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       description: {
         allowNull: false,
-        type: DataTypes.TEXT
+        type: Sequelize.TEXT
       },
       status: {
         allowNull: false,
         defaultValue: 'new',
-        type: DataTypes.ENUM,
+        type: Sequelize.ENUM,
         values: ['new', 'ongoing', 'done', 'blocked', 'rejected'],
       },
       createdAt: {

@@ -6,11 +6,11 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       content: {
         allowNull: false,
-        type: DataTypes.TEXT
+        type: Sequelize.TEXT
       },
       createdAt: {
         allowNull: false,

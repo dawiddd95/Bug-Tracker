@@ -6,34 +6,34 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: DataTypes.INTEGER
+        type: Sequelize.INTEGER
       },
       name: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       surname: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       email: {
         allowNull: false,
-        type: DataTypes.STRING
+        type: Sequelize.STRING
       },
       password: {
         allowNull: false,
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
       },
       type: {
         allowNull: false,
         defaultValue: 'User',
-        type: DataTypes.ENUM,
+        type: Sequelize.ENUM,
         values: ['Admin', 'ProjectLeader', 'Developer', 'Submitter', 'User'],
       },
       active: {
         allowNull: false,
         defaultValue: true,
-        type: DataTypes.BOOLEAN
+        type: Sequelize.BOOLEAN
       },
       createdAt: {
         allowNull: false,
