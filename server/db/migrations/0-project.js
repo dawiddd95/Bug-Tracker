@@ -1,26 +1,18 @@
 'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.createTable('Tickets', {
+    await queryInterface.createTable('Project', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
-        allowNull: false,
+      name: {
         type: Sequelize.STRING
       },
       description: {
-        allowNull: false,
-        type: Sequelize.TEXT
-      },
-      status: {
-        allowNull: false,
-        defaultValue: 'new',
-        type: Sequelize.ENUM,
-        values: ['new', 'ongoing', 'done', 'blocked', 'rejected'],
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
@@ -33,6 +25,6 @@ module.exports = {
     });
   },
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('Tickets');
+    await queryInterface.dropTable('Project');
   }
 };

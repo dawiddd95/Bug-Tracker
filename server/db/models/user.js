@@ -40,6 +40,7 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.Comment, { as: 'comments', foreignKey: 'authorId' });
     User.hasMany(models.Ticket, { as: 'tasks', foreignKey: 'developerId' });
     User.hasMany(models.Ticket, { as: 'tickets', foreignKey: 'submitterId' });
+    User.belongsTo(models.Project, { as: 'project', foreignKey: 'projectId' }); 
   };
   return User;
 };
