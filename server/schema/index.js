@@ -1,6 +1,7 @@
 import userSchema from './user';
 import commentSchema from './comment';
 import ticketSchema from './ticket';
+import projectSchema from './project';
 
 const linkSchema = `
    type Query {
@@ -11,5 +12,4 @@ const linkSchema = `
    }
 `;
 
-export default [linkSchema, userSchema, commentSchema, ticketSchema];
-
+export default [linkSchema, userSchema, commentSchema, ticketSchema, projectSchema];
