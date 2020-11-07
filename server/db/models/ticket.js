@@ -21,6 +21,12 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 'new',
       type: DataTypes.ENUM,
       values: ['new', 'ongoing', 'done', 'blocked', 'rejected'],
+    },
+    priority: {
+      allowNull: false,
+      defaultValue: 'low',
+      type: DataTypes.ENUM,
+      values: ['low', 'normal', 'high'],
     }
   }, { "freezeTableName": true, "timestamps": false });
   Ticket.associate = function (models) {

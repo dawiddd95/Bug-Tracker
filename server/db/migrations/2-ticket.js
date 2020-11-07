@@ -22,6 +22,12 @@ module.exports = {
         type: Sequelize.ENUM,
         values: ['new', 'ongoing', 'done', 'blocked', 'rejected'],
       },
+      priority: {
+        allowNull: false,
+        defaultValue: 'low',
+        type: Sequelize.ENUM,
+        values: ['low', 'normal', 'high'],
+      },
       developerId: {
          type: Sequelize.INTEGER,
          references: {
