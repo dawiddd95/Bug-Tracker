@@ -36,13 +36,8 @@ module.exports = {
         defaultValue: true,
         type: Sequelize.BOOLEAN
       },
-      // W Modelu User mamy  User.belongsTo(models.Project, { as: 'project', foreignKey: 'projectId' }); 
-      // Więc musimy zrealizować w migracji to połączenie również
-      // Dla hasMany nie deklarujemy
-      // Podajemy klucz obcy
       projectId: {
          type: Sequelize.INTEGER,
-         // Do jakiego modelu to połączenie 
          references: {
            model: 'Project',
            key: 'id'

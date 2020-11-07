@@ -22,19 +22,15 @@ module.exports = {
         type: Sequelize.ENUM,
         values: ['new', 'ongoing', 'done', 'blocked', 'rejected'],
       },
-      // W modelu ticket mamy Ticket.belongsTo(models.User, { as: 'developer', foreignKey: 'developerId' });  więc
       developerId: {
          type: Sequelize.INTEGER,
-         // Ma się łączyć z user bo 1 Ticket <=> N User
          references: {
            model: 'User',
            key: 'id'
          }
       },
-      // W modelu ticket mamy Ticket.belongsTo(models.User, { as: 'submitter', foreignKey: 'submitterId' });
       submitterId: {
          type: Sequelize.INTEGER,
-         // Ma się łączyć z user bo 1 Ticket <=> N User
          references: {
            model: 'User',
            key: 'id'
