@@ -14,12 +14,12 @@ export default `
          content: String!
          ticketId: Int!
          authorId: Int!
-      ): CommentSimple
+      ): Comment
       
       updateComment(
          id: Int!
          content: String!
-      ): CommentSimple
+      ): Comment
 
       deleteComment(id: Int!): Int
    } 

@@ -7,10 +7,7 @@ const server = new ApolloServer({
    typeDefs,
    resolvers,
    context: {
-      models,
-      loaders: {
-         agency: new DataLoader(keys => batchAgencies(keys, models)),
-      },
+      models
    }
 });
 
@@ -18,5 +15,3 @@ const server = new ApolloServer({
 server.listen().then(({ url }) => {
    console.log(`🚀  Server ready at ${url}`);
 });
-
-

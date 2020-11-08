@@ -24,7 +24,7 @@ export default `
       User
    }
 
-   type Query {
+   extend type Query {
       users (
          id: Int,
          email: String,
@@ -35,7 +35,7 @@ export default `
       ): [User]!
    }
 
-   type Mutation {
+   extend type Mutation {
       createUser(
          name: String!
          surname: String!
