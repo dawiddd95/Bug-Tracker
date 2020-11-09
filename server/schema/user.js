@@ -23,8 +23,15 @@ export default `
       Submitter
       User
    }
+   
+   type AuthenticatedUser {
+      token: String!
+      user: User!
+   }
 
    extend type Query {
+      me: User
+      
       users (
          id: Int,
          email: String,
@@ -33,6 +40,8 @@ export default `
          type: UserTypeExtended,
          active: Boolean
       ): [User]!
+      
+      getUser(id: Int!): User
    }
 
    extend type Mutation {
@@ -42,12 +51,12 @@ export default `
          email: String!
          password: String!
          repeatPassword: String!
-      ): String
+      ): User
 
       loginUser(
          email: String!
          password: String!
-      ): String
+      ): AuthenticatedUser
 
       updateUser(
          id: Int!
@@ -60,8 +69,8 @@ export default `
 
       updateUserPassword(
          id: Int!
-         password: String
-         repeatPassword: String
+         password: String!
+         repeatPassword: String!
       ): User
    }
 `
