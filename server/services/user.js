@@ -1,7 +1,7 @@
 import bcrypt from 'bcrypt';
 import models from '../../db/models';
 
-const createUser = async (name, surname, email, password, repeatPassword) => {
+export const createUser = async (name, surname, email, password, repeatPassword) => {
    const active = true;
    const hashedPassword = await bcrypt.hash(password, 10);
    
@@ -12,5 +12,3 @@ const createUser = async (name, surname, email, password, repeatPassword) => {
 
    return models.User.create({ name, surname, email, password: hashedPassword, active });
 }
-
-export default createUser;

@@ -17,7 +17,6 @@ export default `
       getProject(id: Int!): Project
    }
 
-
    extend type Mutation {
       createProject(
          name: String!

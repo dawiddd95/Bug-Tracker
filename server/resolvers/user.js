@@ -1,6 +1,6 @@
 import {combineResolvers} from 'graphql-resolvers';
 import {isAuthenticated} from './auth';
-import userService from '../services/user';
+import {createUser} from '../services/user';
 
 export default {
    Query: {
@@ -19,7 +19,7 @@ export default {
 
    Mutation: {
       createUser: (parent, {name, surname, email, password}, {models}) => {
-         return userService.createUser(name, surname, email, password);
+         return createUser(name, surname, email, password);
       },
 
       loginUser: (parent, {email, password}, {models}) => {
@@ -27,7 +27,7 @@ export default {
       },
 
       updateUser: (parent, {id, name, surname, email, password, key, active}, {models}) => {
-         models.User.update({name, surname, email, password, key, active}, {where: {id}});
+         return models.User.update({name, surname, email, password, key, active}, {where: {id}});
       }
    }
 }
