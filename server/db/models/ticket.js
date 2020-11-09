@@ -28,7 +28,7 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.ENUM,
       values: ['low', 'normal', 'high'],
     }
-  }, { "freezeTableName": true, "timestamps": false });
+  }, {});
   Ticket.associate = function (models) {
     Ticket.belongsTo(models.User, { as: 'developer', foreignKey: 'developerId' }); 
     Ticket.belongsTo(models.User, { as: 'submitter', foreignKey: 'submitterId' });

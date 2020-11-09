@@ -35,7 +35,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: true,
       type: DataTypes.BOOLEAN
     }
-  }, { "freezeTableName": true, "timestamps": false });
+  }, {});
   User.associate = function (models) {
     User.hasMany(models.Comment, { as: 'comments', foreignKey: 'authorId' });
     User.hasMany(models.Ticket, { as: 'tasks', foreignKey: 'developerId' });

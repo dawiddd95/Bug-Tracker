@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.STRING
     },
-  }, { "freezeTableName": true, "timestamps": false });
+  }, {});
   Project.associate = function (models) {
     Project.hasMany(models.User, { as: 'users', foreignKey: 'userId' });
     Project.hasMany(models.Ticket, { as: 'tickets', foreignKey: 'ticketId' });

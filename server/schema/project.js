@@ -4,15 +4,15 @@ export default `
       id: Int!
       name: String!
       description: String!
-      team: [User]!
-      tickets: [Ticket]!
+      createdAt: String!
+      updatedAt: String!
    }
 
    extend type Query {
       allProjects (
          name: String
          description: String
-      ): [Ticket]!
+      ): [Project!]!
 
       getProject(id: Int!): Project
    }
@@ -26,10 +26,10 @@ export default `
       
       updateProject(
          id: Int!
-         name: String!
-         description: String!
-      ): Project
+         name: String
+         description: String
+      ): [Int!]
       
-      deleteProject(id: Int!): Int
+      deleteProject(id: Int!): Int!
    }
 `

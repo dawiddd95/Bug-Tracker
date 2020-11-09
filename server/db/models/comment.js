@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       type: DataTypes.TEXT
     }
-  }, { "freezeTableName": true, "timestamps": false });
+  }, {});
   Comment.associate = function (models) {
     Comment.belongsTo(models.Ticket, { as: 'ticket', foreignKey: 'ticketId' });
     Comment.belongsTo(models.User, { as: 'author', foreignKey: 'authorId' });

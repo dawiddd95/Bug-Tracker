@@ -60,8 +60,6 @@ export default `
          submitterId: Int!
          developerId: Int
          priority: TicketPriority!
-         submitter: User!
-         developer: User
          projectId: Int!
       ): TicketSimple
       
