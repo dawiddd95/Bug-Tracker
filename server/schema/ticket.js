@@ -52,7 +52,6 @@ export default `
       getTicket(id: Int!): Ticket
    }
 
-
    extend type Mutation {
       createTicket(
          title: String!
