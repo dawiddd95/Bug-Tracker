@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import models from '../../db/models';
+import models from '../db/models';
 
 export const createUser = async (name, surname, email, password, repeatPassword) => {
    const active = true;
