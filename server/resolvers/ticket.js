@@ -22,7 +22,8 @@ export default {
       updateTicket: (parent, args, {models}) => {
          return models.Ticket.update(args, {
             where: {
-               id
+               // Jeśli przekazujemy args zamiast destrukturyzacji do resolvera to tutaj musimy zamiast id wpisać id: args.id
+               id: args.id
             }
          });
       },

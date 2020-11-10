@@ -74,8 +74,8 @@ export default `
          status: TicketStatus
          priority: TicketPriority
          developerId: Int
-      ): TicketSimple
+      ): [Int]
       
-      deleteTicket(id: Int!): Int
+      deleteTicket(id: Int!): Int!
    }
 `
