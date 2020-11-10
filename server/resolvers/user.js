@@ -1,5 +1,3 @@
-import {combineResolvers} from 'graphql-resolvers';
-import {isAuthenticated} from './auth';
 import userService from '../services/user';
 
 export default {

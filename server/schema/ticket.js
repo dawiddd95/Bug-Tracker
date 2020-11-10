@@ -44,9 +44,13 @@ export default `
    extend type Query {
       allTickets (
          id: Int,
+         title: String,
+         description: String,
          status: TicketStatus,
          submitterId: Int,
          developerId: Int
+         projectId: Int
+         priority: TicketPriority
       ): [Ticket]!
 
       getTicket(id: Int!): Ticket
