@@ -44,14 +44,17 @@ export default `
    extend type Query {
       allTickets (
          id: Int,
+         title: String,
+         description: String,
          status: TicketStatus,
          submitterId: Int,
          developerId: Int
+         projectId: Int
+         priority: TicketPriority
       ): [Ticket]!
 
       getTicket(id: Int!): Ticket
    }
-
 
    extend type Mutation {
       createTicket(
@@ -71,8 +74,8 @@ export default `
          status: TicketStatus
          priority: TicketPriority
          developerId: Int
-      ): TicketSimple
+      ): [Int]
       
-      deleteTicket(id: Int!): Int
+      deleteTicket(id: Int!): Int!
    }
 `

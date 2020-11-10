@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import {createUser} from '../services/user';
+=======
+import userService from '../services/user';
+>>>>>>> tickets-feature
 
 export default {
    Query: {
