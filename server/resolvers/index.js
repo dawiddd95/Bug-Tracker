@@ -1,10 +1,6 @@
 import projectResolvers from './projects';
 import userResolvers from './user';
-<<<<<<< HEAD
-
-export default [projectResolvers, userResolvers];
-=======
 import ticketResolvers from './ticket';
+import commentResolvers from './comment';
 
-export default [projectResolvers, userResolvers, ticketResolvers];
->>>>>>> tickets-feature
+export default [projectResolvers, userResolvers, ticketResolvers, commentResolvers];

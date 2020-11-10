@@ -19,8 +19,8 @@ export default `
       updateComment(
          id: Int!
          content: String!
-      ): Comment
+      ): [Int]
 
-      deleteComment(id: Int!): Int
+      deleteComment(id: Int!): Int!
    } 
 `
