@@ -1,4 +1,7 @@
-import {createUser} from '../services/user';
+import {combineResolvers} from 'graphql-resolvers';
+
+import {createUser, loginUser} from '../services/user';
+import {isAuthenticated} from './auth';
 
 export default {
    Query: {
@@ -21,7 +24,7 @@ export default {
       },
 
       loginUser: (parent, {email, password}, {models}) => {
-         return userService.loginUser(email, password);
+         return loginUser(email, password);
       },
 
       updateUser: (parent, {id, name, surname, email, password, key, active}, {models}) => {
