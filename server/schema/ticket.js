@@ -8,23 +8,13 @@ export default `
       priority: TicketPriority!
       createdAt: String!
       updatedAt: String!
+      submitterId: Int!
       submitter: User!
-      developer: User
+      developerId: Int!
+      developer: User!
+      projectId: Int!
       project: Project!
       comments: [Comment]!
-   }
-
-   type TicketSimple {
-      id: Int!
-      title: String!
-      description: String!
-      status: TicketStatus!
-      submitterId: Int!
-      developerId: Int
-      priority: TicketPriority!
-      submitter: User!
-      developer: User
-      projectId: Int!
    }
 
    enum TicketStatus {
@@ -64,7 +54,7 @@ export default `
          developerId: Int
          priority: TicketPriority!
          projectId: Int!
-      ): TicketSimple
+      ): Ticket
       
 
       updateTicket(

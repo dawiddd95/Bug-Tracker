@@ -27,13 +27,13 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 'low',
       type: DataTypes.ENUM,
       values: ['low', 'normal', 'high'],
-    }
+    },
   }, {});
   Ticket.associate = function (models) {
+    Ticket.hasMany(models.Comment, { as: 'comments', foreignKey: 'ticketId' });
     Ticket.belongsTo(models.User, { as: 'developer', foreignKey: 'developerId' }); 
     Ticket.belongsTo(models.User, { as: 'submitter', foreignKey: 'submitterId' });
     Ticket.belongsTo(models.Project, { as: 'project', foreignKey: 'projectId'});
-    Ticket.hasMany(models.Comment, { as: 'comments', foreignKey: 'ticketId' });
   };
   return Ticket;
 };

@@ -6,7 +6,9 @@ export default `
       createdAt: String!
       updatedAt: String!
       ticketId: Int!
+      ticket: Ticket!
       authorId: Int!
+      author: User!
    }
 
    extend type Mutation {

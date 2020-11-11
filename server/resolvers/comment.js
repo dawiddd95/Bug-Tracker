@@ -1,5 +1,5 @@
 export default {   
-
+   
    Mutation: {
       createComment: (parent, {content, ticketId, authorId}, {models}) => {
          return models.Comment.create({
