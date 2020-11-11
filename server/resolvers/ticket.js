@@ -15,29 +15,11 @@ export default {
    },
 
    Ticket: {
-      submitter: (ticket, args, {models}) => {
-         return models.User.findOne({
-            where: {
-               id: ticket.submitterId
-            }
-         });
-      },
+      submitter: async (ticket, args, { loaders }) => await loaders.user.load(ticket.submitterId),
 
-      developer: (ticket, args, {models}) => {
-         return models.User.findOne({
-            where: {
-               id: ticket.developerId
-            }
-         });
-      },
+      developer: async (ticket, args, { loaders }) => await loaders.user.load(ticket.developerId),
 
-      project: (ticket, args, {models}) => {
-         return models.Project.findOne({
-            where: {
-               id: ticket.projectId
-            }
-         });
-      },
+      project: async (ticket, args, { loaders }) => await loaders.project.load(ticket.projectId),
 
       comments: (ticket, args, {models}) => {
          return models.Comment.findAll({

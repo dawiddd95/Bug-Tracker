@@ -4,7 +4,7 @@ import DataLoader from 'dataloader'
 import typeDefs from './schema'
 import resolvers from './resolvers'
 import models from './db/models'
-import {batchXXXX} from './services/dataLoaders'
+import {batchTickets, batchUsers, batchProjects} from './services/dataLoaders'
 
 const server = new ApolloServer({
    typeDefs,
@@ -12,7 +12,9 @@ const server = new ApolloServer({
    context: {
       models,
       loaders: { 
-         agency: new DataLoader(keys => batchAgencies(keys, models)),
+         ticket: new DataLoader(keys => batchTickets(keys, models)),
+         user: new DataLoader(keys => batchUsers(keys, models)),
+         project: new DataLoader(keys => batchProjects(keys, models))
       },
    }
 });
