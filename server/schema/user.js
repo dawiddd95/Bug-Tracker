@@ -50,7 +50,6 @@ export default `
          surname: String!
          email: String!
          password: String!
-         repeatPassword: String!
       ): User
 
       loginUser(
@@ -65,12 +64,11 @@ export default `
          email: String
          type: UserType
          active: Boolean
-      ): User
+      ): [Int]
 
       updateUserPassword(
          id: Int!
          password: String!
-         repeatPassword: String!
-      ): User
+      ): [Int]
    }
 `

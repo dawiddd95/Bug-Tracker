@@ -27,8 +27,12 @@ export default {
          return loginUser(email, password);
       },
 
-      updateUser: (parent, {id, name, surname, email, password, key, active}, {models}) => {
-         return models.User.update({name, surname, email, password, key, active}, {where: {id}});
+      updateUser: (parent, {id, name, surname, email, type, active}, {models}) => {
+         return models.User.update({name, surname, email, password, type, active}, {where: {id}});
+      },
+
+      updateUserPassword: (parent, {id, password}, {models}) => {
+         return models.User.update({password}, {where: {id}});
       }
    }
 }

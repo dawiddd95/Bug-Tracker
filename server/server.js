@@ -1,5 +1,8 @@
+import express from 'express'
+import cors from 'cors'
+import bodyParser from 'body-parser'
+import graphqlHTTP from 'express-graphql'
 import DataLoader from 'dataloader'
-import {applyMiddleware} from 'graphql-middleware'
 import {makeExecutableSchema} from 'graphql-tools'
 
 import typeDefs from './schema'
