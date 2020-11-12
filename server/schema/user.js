@@ -7,6 +7,8 @@ export default `
       email: String!
       type: UserTypeExtended!
       active: Boolean!
+      projectId: Int
+      project: Project
    }
 
    enum UserType {
@@ -69,6 +71,11 @@ export default `
       updateUserPassword(
          id: Int!
          password: String!
+      ): [Int]
+
+      assignProject(
+         id: Int!
+         projectId: Int!        
       ): [Int]
    }
 `

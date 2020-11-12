@@ -15,3 +15,11 @@ export const hasRoleAdmin = (parent, args, {userRole}) => {
       throw new Error('Not Allowed')
    }
 }
+
+export const hasRoleProjectLeader = (parent, args, {userRole}) => {
+   if(userRole === 'ProjectLeader') {
+      skip
+   } else {
+      throw new Error('Not Allowed')
+   }
+}
