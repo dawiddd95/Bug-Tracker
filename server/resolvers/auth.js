@@ -8,5 +8,11 @@ export const isAuthenticated = (parent, args, {userId}) => {
    }
 }
 
-// Method hasRole
-// Stworzymy middleware do sprawdzania roli, wrzucimy do context i tutaj weźmiemy
+// To
+export const hasRole = (parent, args, {userRole}) => {
+   if(userRole === 'Admin') {
+      skip
+   } else {
+      throw new Error('Not allowed')
+   }
+}

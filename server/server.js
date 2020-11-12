@@ -9,7 +9,7 @@ import typeDefs from './schema'
 import resolvers from './resolvers'
 import models from './db/models'
 import {batchTickets, batchUsers, batchProjects} from './services/dataLoaders'
-import {getUserIdMiddleware} from './middleware/getUserIdMiddleware'
+import {getUserIdMiddleware} from './services/user'
 
 
 const schema = makeExecutableSchema({
@@ -27,6 +27,8 @@ app.use('/graphql', graphqlHTTP( req => ({
    context: {
       models,
       userId: req.userId,
+      // To
+      userRole: req.userRole,
       loaders: { 
          ticket: new DataLoader(keys => batchTickets(keys, models)),
          user: new DataLoader(keys => batchUsers(keys, models)),

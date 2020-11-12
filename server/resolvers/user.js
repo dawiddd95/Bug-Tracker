@@ -1,21 +1,25 @@
 import {combineResolvers} from 'graphql-resolvers';
 
 import {createUser, loginUser} from '../services/user';
-import {isAuthenticated} from './auth';
+import {hasRole, isAuthenticated} from './auth';
 
 export default {
    Query: {
-      users: (parent, args, {models}) => {
-         return models.User.findAll({where: args});
-      },
+      me: combineResolvers(isAuthenticated, (parent, args, {models, userId}) =>  
+         models.User.findOne({where: {id: userId}})
+      ),
 
-      getUser: (parent, {id}, {models}) => {
-         return models.User.findOne({
+      users: combineResolvers(isAuthenticated, hasRole, (parent, args, {models, userRole}) => 
+         models.User.findAll({where: args})
+      ),
+
+      getUser: combineResolvers(isAuthenticated, (parent, {id}, {models}) => 
+         models.User.findOne({
             where: {
                id
             }
-         });
-      },
+         })
+      ),
    },
 
    Mutation: {
@@ -27,12 +31,12 @@ export default {
          return loginUser(email, password);
       },
 
-      updateUser: (parent, {id, name, surname, email, type, active}, {models}) => {
-         return models.User.update({name, surname, email, password, type, active}, {where: {id}});
-      },
+      updateUser: combineResolvers(isAuthenticated, (parent, {id, name, surname, email, type, active}, {models}) => 
+         models.User.update({name, surname, email, type, active}, {where: {id}})
+      ),
 
-      updateUserPassword: (parent, {id, password}, {models}) => {
-         return models.User.update({password}, {where: {id}});
-      }
+      updateUserPassword: combineResolvers(isAuthenticated, (parent, {id, password}, {models}) => 
+         models.User.update({password}, {where: {id}})
+      )
    }
 }
