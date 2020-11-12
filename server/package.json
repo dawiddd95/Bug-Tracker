@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@graphql-tools/resolvers-composition": "^6.2.5",
     "apollo-server": "^2.9.3",
     "babel-cli": "^6.26.0",
     "babel-preset-latest": "^6.24.1",

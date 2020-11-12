@@ -8,11 +8,10 @@ export const isAuthenticated = (parent, args, {userId}) => {
    }
 }
 
-// To
-export const hasRole = (parent, args, {userRole}) => {
+export const hasRoleAdmin = (parent, args, {userRole}) => {
    if(userRole === 'Admin') {
       skip
    } else {
-      throw new Error('Not allowed')
+      throw new Error('Not Allowed')
    }
 }
