@@ -18,13 +18,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE
       },
-      leaderId: {
-        type: Sequelize.INTEGER,
-        references: {
-          model: 'Users',
-          key: 'id'
-        }
-      },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
