@@ -1,3 +1,7 @@
+import {combineResolvers} from 'graphql-resolvers';
+import {hasRoleProjectLeader, isAuthenticated, isLeader} from './auth';
+import {createProject, deleteProject} from '../services/project';
+
 export default {
 
    Query: {
@@ -15,9 +19,9 @@ export default {
    },
 
    Mutation: {
-      createProject: (parent, {name, description}, {models}) => {
-         return models.Project.create({name, description});
-      },
+      createProject: combineResolvers(isAuthenticated, hasRoleProjectLeader, (parent, {name, description}, {models, userId}) => 
+         createProject(name, description, userId)
+      ),
 
       updateProject: (parent, {id, name, description}, {models}) => {
          return models.Project.update({name, description}, {
@@ -27,12 +31,8 @@ export default {
          });
       },
 
-      deleteProject: (parent, {id}, {models}) => {
-         return models.Project.destroy({
-            where: {
-               id
-            }
-         })
-      }
+      deleteProject: combineResolvers(isAuthenticated, hasRoleProjectLeader, isLeader, (parent, {id}, {models, userId}) => 
+         deleteProject(id, userId)
+      )
    }
 }

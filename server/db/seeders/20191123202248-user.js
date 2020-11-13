@@ -10,7 +10,9 @@ module.exports = {
       password: '$2b$10$amCO8fbOyfXZtS3vnhs6xOCfAFBMmGJvQtCw.j0kO4niAi/9xZ26e', // ZAQ!2wsx
       type: 'Admin',
       active: true,
-      projectId: null
+      projectId: null,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       id: 2,
@@ -20,7 +22,9 @@ module.exports = {
       password: '$2b$10$amCO8fbOyfXZtS3vnhs6xOCfAFBMmGJvQtCw.j0kO4niAi/9xZ26e', // ZAQ!2wsx
       type: 'Developer',
       active: true,
-      projectId: 1
+      projectId: 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       id: 3,
@@ -30,7 +34,9 @@ module.exports = {
       password: '$2b$10$amCO8fbOyfXZtS3vnhs6xOCfAFBMmGJvQtCw.j0kO4niAi/9xZ26e', // ZAQ!2wsx
       type: 'Submitter',
       active: true,
-      projectId: 2
+      projectId: 2,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       id: 4,
@@ -40,7 +46,9 @@ module.exports = {
       password: '$2b$10$amCO8fbOyfXZtS3vnhs6xOCfAFBMmGJvQtCw.j0kO4niAi/9xZ26e', // ZAQ!2wsx
       type: 'User',
       active: true,
-      projectId: null
+      projectId: null,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       id: 5,
@@ -50,7 +58,9 @@ module.exports = {
       password: '$2b$10$amCO8fbOyfXZtS3vnhs6xOCfAFBMmGJvQtCw.j0kO4niAi/9xZ26e', // ZAQ!2wsx
       type: 'Submitter',
       active: true,
-      projectId: 1
+      projectId: 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       id: 6,
@@ -60,7 +70,9 @@ module.exports = {
       password: '$2b$10$amCO8fbOyfXZtS3vnhs6xOCfAFBMmGJvQtCw.j0kO4niAi/9xZ26e', // ZAQ!2wsx
       type: 'Developer',
       active: true,
-      projectId: 2
+      projectId: 2,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       id: 7,
@@ -70,7 +82,9 @@ module.exports = {
       password: '$2b$10$amCO8fbOyfXZtS3vnhs6xOCfAFBMmGJvQtCw.j0kO4niAi/9xZ26e', // ZAQ!2wsx
       type: 'ProjectLeader',
       active: true,
-      projectId: 1
+      projectId: 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       id: 8,
@@ -80,7 +94,9 @@ module.exports = {
       password: '$2b$10$amCO8fbOyfXZtS3vnhs6xOCfAFBMmGJvQtCw.j0kO4niAi/9xZ26e', // ZAQ!2wsx
       type: 'ProjectLeader',
       active: true,
-      projectId: 2
+      projectId: 2,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     },
     {
       id: 9,
@@ -90,7 +106,9 @@ module.exports = {
       password: '$2b$10$amCO8fbOyfXZtS3vnhs6xOCfAFBMmGJvQtCw.j0kO4niAi/9xZ26e', // ZAQ!2wsx
       type: 'Developer',
       active: true,
-      projectId: 1
+      projectId: 1,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     }
   ], {});
   },
