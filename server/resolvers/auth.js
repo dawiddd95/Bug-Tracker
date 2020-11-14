@@ -9,7 +9,8 @@ export const isAuthenticated = (parent, args, {userId}) => {
    }
 }
 
-export const isLeader = async (parent, {id}, {userId}) => {
+export const isAssign = async (parent, {id}, {userId}) => {
+   // move this to middleware possibly
    const user = await models.User.findOne({ 
       where: {
          id: userId
@@ -19,7 +20,7 @@ export const isLeader = async (parent, {id}, {userId}) => {
    if(id === user.projectId) {
       skip
    } else {
-      throw new Error('You are not project leader of this project');
+      throw new Error('Only assigned user is allowed to made this operation');
    }
 }
 

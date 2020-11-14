@@ -1,5 +1,5 @@
 import {combineResolvers} from 'graphql-resolvers';
-import {hasRoleProjectLeader, isAuthenticated, isLeader} from './auth';
+import {hasRoleProjectLeader, isAuthenticated, isAssign} from './auth';
 import {createProject, deleteProject} from '../services/project';
 
 export default {
@@ -23,15 +23,16 @@ export default {
          createProject(name, description, userId)
       ),
 
-      updateProject: (parent, {id, name, description}, {models}) => {
-         return models.Project.update({name, description}, {
+      updateProject: combineResolvers(isAuthenticated, hasRoleProjectLeader, isAssign, (parent, {id, name, description}, {models}) => 
+         // Edytuje tylko nazwe i opis, musi być właścicielem, żeby każdy sobie nie edytował jak chce
+         models.Project.update({name, description}, {
             where: {
                id
             }
-         });
-      },
+         })
+      ),
 
-      deleteProject: combineResolvers(isAuthenticated, hasRoleProjectLeader, isLeader, (parent, {id}, {models, userId}) => 
+      deleteProject: combineResolvers(isAuthenticated, hasRoleProjectLeader, isAssign, (parent, {id}, {models, userId}) => 
          deleteProject(id, userId)
       )
    }
