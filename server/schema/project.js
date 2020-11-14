@@ -6,10 +6,13 @@ export default `
       description: String!
       createdAt: String!
       updatedAt: String!
+      users: [User]!
+      tickets: [Ticket]!
    }
 
    extend type Query {
       allProjects (
+         id: Int
          name: String
          description: String
       ): [Project!]!

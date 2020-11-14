@@ -7,8 +7,10 @@ export default `
       email: String!
       type: UserTypeExtended!
       active: Boolean!
-      projectId: Int
-      project: Project
+      createdAt: String!
+      updatedAt: String!
+      projectId: Int!
+      project: Project!
    }
 
    enum UserType {

@@ -11,6 +11,7 @@ export const isAuthenticated = (parent, args, {userId}) => {
 
 export const isAssign = async (parent, {id}, {userId}) => {
    // move this to middleware possibly
+   // czy pobierać projectId w middleware, używane to jest wszędzie gdzie używamy isAssign
    const user = await models.User.findOne({ 
       where: {
          id: userId
@@ -20,7 +21,7 @@ export const isAssign = async (parent, {id}, {userId}) => {
    if(id === user.projectId) {
       skip
    } else {
-      throw new Error('Only assigned user is allowed to made this operation');
+      throw new Error('Only assigned user to this project is allowed to made this operation');
    }
 }
 
