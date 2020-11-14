@@ -1,17 +1,21 @@
+import {combineResolvers} from 'graphql-resolvers';
+import {hasRoleSubmitter, isAuthenticated, isAssign, isTicketAuthor} from './auth';
+
 export default {
 
    Query: {
-      allTickets: (parent, args, {models}) => {
-         return models.Ticket.findAll({where: args});
-      },
+      // To musi być serwis, w ifie będzie sprawdzać jaką ma rolę i wtedy zwraca wszystkie na podstawie developerId lub submitterId lub projectId jeśli to projectLeader lub admin
+      allTickets: combineResolvers(isAuthenticated, isAssign, (parent, args, {models}) => 
+         models.Ticket.findAll({where: args})
+      ),
 
-      getTicket: (parent, {id}, {models}) => {
-         return models.Ticket.findOne({
+      getTicket: combineResolvers(isAuthenticated, isAssign, (parent, {id}, {models}) => 
+         models.Ticket.findOne({
             where: {
                id
             }
-         });
-      },
+         })
+      ),
    },
 
    Ticket: {
@@ -31,24 +35,30 @@ export default {
    },
 
    Mutation: {
-      createTicket: (parent, args, {models}) => {
-         return models.Ticket.create(args);
-      },
+      createTicket: combineResolvers(
+         isAuthenticated, hasRoleSubmitter, 
+         (parent, {title, description, developerId, priority, projectId}, {models, userId}) => 
+            createTicket(title, description, developerId, priority, projectId, userId)
+      ),
 
-      updateTicket: (parent, args, {models}) => {
-         return models.Ticket.update(args, {
-            where: {
-               id: args.id
-            }
-         });
-      },
+      updateTicket: combineResolvers(
+         isAuthenticated, hasRoleSubmitter, isTicketAuthor,
+         (parent, args, {models, userId}) => 
+            models.Ticket.update(args, {
+               where: {
+                  id: args.id
+               }
+            })
+      ),
 
-      deleteTicket: (parent, {id}, {models}) => {
-         return models.Ticket.destroy({
-            where: {
-               id
-            }
-         })
-      }
+      deleteTicket: combineResolvers(
+         isAuthenticated, hasRoleSubmitter, isTicketAuthor, 
+         (parent, args, {models, userId}) => 
+            models.Ticket.destroy({
+               where: {
+                  id: args.id
+               }
+            })
+      )
    }
 }

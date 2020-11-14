@@ -6,7 +6,7 @@ import models from '../db/models'
 const SECRET = uuid.v4()
 
 const generateToken = user => {
-   return jwt.sign({userId: user.id, userRole: user.type}, SECRET)
+   return jwt.sign({userId: user.id, userRole: user.type, assignProject: user.projectId}, SECRET)
 }
 
 export const createUser = async (name, surname, email, password) => {

@@ -37,7 +37,7 @@ export default `
          title: String,
          description: String,
          status: TicketStatus,
-         submitterId: Int,
+         submitterId: Int
          developerId: Int
          projectId: Int
          priority: TicketPriority
@@ -50,7 +50,6 @@ export default `
       createTicket(
          title: String!
          description: String!
-         submitterId: Int!
          developerId: Int
          priority: TicketPriority!
          projectId: Int!
@@ -64,8 +63,14 @@ export default `
          status: TicketStatus
          priority: TicketPriority
          developerId: Int
+         submitterId: Int!
+         projectId: Int!
       ): [Int]
       
-      deleteTicket(id: Int!): Int!
+      deleteTicket(
+         id: Int!
+         projectId: Int!   
+         submitterId: Int!
+      ): Int!
    }
 `
