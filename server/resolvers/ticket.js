@@ -1,21 +1,23 @@
 import {combineResolvers} from 'graphql-resolvers';
-import {hasRoleSubmitter, isAuthenticated, isAssign, isTicketAuthor} from './auth';
+import {hasRoleSubmitter, isAuthenticated, isTicketAuthor} from './auth';
 
 export default {
 
    Query: {
-      // To musi być serwis, w ifie będzie sprawdzać jaką ma rolę i wtedy zwraca wszystkie na podstawie developerId lub submitterId lub projectId jeśli to projectLeader lub admin
-      allTickets: combineResolvers(isAuthenticated, isAssign, (parent, args, {models}) => 
+      allTickets: combineResolvers(isAuthenticated, async (parent, args, {models}) => 
          models.Ticket.findAll({where: args})
       ),
 
-      getTicket: combineResolvers(isAuthenticated, isAssign, (parent, {id}, {models}) => 
-         models.Ticket.findOne({
-            where: {
-               id
-            }
-         })
-      ),
+      getTicket: combineResolvers(isAuthenticated, async (parent, {id}, {models, userId}) => {
+         const ticket = await models.Ticket.findOne({ where: {id} })
+         const user = await models.User.findOne({ where: {id: userId} })
+
+         if(ticket.projectId === user.projectId) {
+            return ticket;
+         } else {
+            throw new Error('Only assigned user to this project is allowed to made this operation');
+         }
+      }),
    },
 
    Ticket: {

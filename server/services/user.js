@@ -31,6 +31,14 @@ export const loginUser = async (email, password) => {
    return { token: generateToken(user), user}
 }
 
+export const assignProject = async (id, projectId) => {
+   const user = await models.User.findOne({where: {id}})
+
+   if(user.projectId === null) {
+      return models.User.update({projectId}, {where: {id}})
+   }
+}
+
 export const getUserIdMiddleware = async (req) => {
    try {
       const token = req.headers.authorization

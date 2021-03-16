@@ -2,7 +2,7 @@
 
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('User', [{
+    return queryInterface.bulkInsert('Users', [{
       id: 1,
       name: 'Dawid',
       surname: 'Lyc',
@@ -22,7 +22,7 @@ module.exports = {
       password: '$2b$10$amCO8fbOyfXZtS3vnhs6xOCfAFBMmGJvQtCw.j0kO4niAi/9xZ26e', // ZAQ!2wsx
       type: 'Developer',
       active: true,
-      projectId: 1,
+      projectId: null,
       createdAt: new Date(),
       updatedAt: new Date(),
     },
@@ -34,7 +34,7 @@ module.exports = {
       password: '$2b$10$amCO8fbOyfXZtS3vnhs6xOCfAFBMmGJvQtCw.j0kO4niAi/9xZ26e', // ZAQ!2wsx
       type: 'Submitter',
       active: true,
-      projectId: 2,
+      projectId: null,
       createdAt: new Date(),
       updatedAt: new Date(),
     },
@@ -58,7 +58,7 @@ module.exports = {
       password: '$2b$10$amCO8fbOyfXZtS3vnhs6xOCfAFBMmGJvQtCw.j0kO4niAi/9xZ26e', // ZAQ!2wsx
       type: 'Submitter',
       active: true,
-      projectId: 1,
+      projectId: null,
       createdAt: new Date(),
       updatedAt: new Date(),
     },
@@ -70,7 +70,7 @@ module.exports = {
       password: '$2b$10$amCO8fbOyfXZtS3vnhs6xOCfAFBMmGJvQtCw.j0kO4niAi/9xZ26e', // ZAQ!2wsx
       type: 'Developer',
       active: true,
-      projectId: 2,
+      projectId: null,
       createdAt: new Date(),
       updatedAt: new Date(),
     },
@@ -82,7 +82,7 @@ module.exports = {
       password: '$2b$10$amCO8fbOyfXZtS3vnhs6xOCfAFBMmGJvQtCw.j0kO4niAi/9xZ26e', // ZAQ!2wsx
       type: 'ProjectLeader',
       active: true,
-      projectId: 1,
+      projectId: null,
       createdAt: new Date(),
       updatedAt: new Date(),
     },
@@ -94,7 +94,7 @@ module.exports = {
       password: '$2b$10$amCO8fbOyfXZtS3vnhs6xOCfAFBMmGJvQtCw.j0kO4niAi/9xZ26e', // ZAQ!2wsx
       type: 'ProjectLeader',
       active: true,
-      projectId: 2,
+      projectId: null,
       createdAt: new Date(),
       updatedAt: new Date(),
     },
@@ -106,7 +106,7 @@ module.exports = {
       password: '$2b$10$amCO8fbOyfXZtS3vnhs6xOCfAFBMmGJvQtCw.j0kO4niAi/9xZ26e', // ZAQ!2wsx
       type: 'Developer',
       active: true,
-      projectId: 1,
+      projectId: null,
       createdAt: new Date(),
       updatedAt: new Date(),
     }
@@ -114,6 +114,6 @@ module.exports = {
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('User', null, {});
+    return queryInterface.bulkDelete('Users', null, {});
   }
 };

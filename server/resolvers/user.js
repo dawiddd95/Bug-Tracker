@@ -1,6 +1,6 @@
 import {combineResolvers} from 'graphql-resolvers';
 
-import {createUser, loginUser} from '../services/user';
+import {createUser, loginUser, assignProject} from '../services/user';
 import {hasRoleAdmin, hasRoleProjectLeader, isAuthenticated} from './auth';
 
 
@@ -41,7 +41,7 @@ export default {
       ),
 
       assignProject: combineResolvers(isAuthenticated, hasRoleProjectLeader, (parent, {id, projectId}, {models}) => 
-         models.User.update({projectId}, {where: {id}})
+         assignProject(id, projectId)
       )
    }
 }
