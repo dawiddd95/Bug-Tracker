@@ -31,6 +31,16 @@ export const isTicketAuthor = async (parent, args, {userId}) => {
    }
 }
 
+export const isCommentAuthor = async (parent, args, {userId}) => {
+   const comment = await models.Comment.findOne({ where: {id: args.id} })
+
+   if(comment.authorId === userId) {
+      skip
+   } else {
+      throw new Error('Only Comment author is allowed to made this operation');
+   }
+}
+
 
 export const hasRoleSubmitter = (parent, args, {userRole}) => {
    if(userRole === 'Submitter') {

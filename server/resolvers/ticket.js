@@ -1,5 +1,6 @@
 import {combineResolvers} from 'graphql-resolvers';
 import {hasRoleSubmitter, isAuthenticated, isTicketAuthor} from './auth';
+import {createTicket} from '../services/ticket';
 
 export default {
 
