@@ -10,6 +10,14 @@ export default `
       tickets: [Ticket]!
    }
 
+   type ProjectShort {
+      id: Int!
+      name: String!
+      description: String!
+      createdAt: String!
+      updatedAt: String!
+   }
+
    extend type Query {
       allProjects (
          id: Int
@@ -24,14 +32,12 @@ export default `
       createProject(
          name: String!
          description: String!
-      ): Project
+      ): ProjectShort!
       
       updateProject(
          id: Int!
          name: String
          description: String
       ): [Int!]
-      
-      deleteProject(id: Int!): Int!
    }
 `

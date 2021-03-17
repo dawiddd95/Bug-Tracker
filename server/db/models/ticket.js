@@ -30,7 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   Ticket.associate = function (models) {
-    Ticket.hasMany(models.Comment, { as: 'comments', foreignKey: 'ticketId' });
+    Ticket.hasMany(models.Comment, { as: 'comments', foreignKey: 'ticketId', onDelete: 'cascade' });
     Ticket.belongsTo(models.User, { as: 'developer', foreignKey: 'developerId' }); 
     Ticket.belongsTo(models.User, { as: 'submitter', foreignKey: 'submitterId' });
     Ticket.belongsTo(models.Project, { as: 'project', foreignKey: 'projectId'});

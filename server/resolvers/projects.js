@@ -1,6 +1,6 @@
 import {combineResolvers} from 'graphql-resolvers';
 import {hasRoleProjectLeader, isAuthenticated, isAssign} from './auth';
-import {createProject, deleteProject} from '../services/project';
+import {createProject} from '../services/project';
 
 export default {
 
@@ -50,9 +50,5 @@ export default {
             }
          })
       ),
-
-      deleteProject: combineResolvers(isAuthenticated, hasRoleProjectLeader, isAssign, (parent, {id}, {models, userId}) => 
-         deleteProject(id, userId)
-      )
    }
 }
