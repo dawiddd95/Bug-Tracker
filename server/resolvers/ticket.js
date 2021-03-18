@@ -56,12 +56,18 @@ export default {
 
       deleteTicket: combineResolvers(
          isAuthenticated, hasRoleSubmitter, isTicketAuthor, 
-         (parent, args, {models, userId}) => 
-            models.Ticket.destroy({
+         async (parent, args, {models, userId}) => {
+            await models.Comment.destroy({
+               where: {
+                  ticketId: args.id
+               }
+            })
+
+            return models.Ticket.destroy({
                where: {
                   id: args.id
                }
             })
-      )
+         })
    }
 }

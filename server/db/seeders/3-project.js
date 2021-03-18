@@ -6,7 +6,6 @@ module.exports = {
          id: 1,
          name: 'Bug Tracker',
          description: 'Application for manage projects',
-         leaderId: 7,
          createdAt: new Date(),
          updatedAt: new Date(),
       },
@@ -14,7 +13,6 @@ module.exports = {
          id: 2,
          name: 'Fresh Votes',
          description: 'Application for voting',
-         leaderId: 8,
          createdAt: new Date(),
          updatedAt: new Date(),
       }], {});
