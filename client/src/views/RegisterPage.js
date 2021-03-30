@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import StorePageTemplate from 'templates/StorePageTemplate';
 import { Button } from 'components/atoms/Button/Button';
 import { Input } from 'components/atoms/Input/Input';
-import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
+import { Paragraph } from 'components/atoms/Span/Span';
 import { Strong } from 'components/atoms/Strong/Strong';
 
 const Wrapper = styled.div`

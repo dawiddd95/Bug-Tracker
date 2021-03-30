@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import StorePageTemplate from 'templates/StorePageTemplate';
 import { Strong } from 'components/atoms/Strong/Strong';
-import { Paragraph } from 'components/atoms/Paragraph/Paragraph';
+import { Paragraph } from 'components/atoms/Span/Span';
 
 const Wrapper = styled.div`
   width: 80%;
