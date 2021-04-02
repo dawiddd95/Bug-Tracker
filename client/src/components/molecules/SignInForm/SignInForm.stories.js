@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { storiesOf } from '@storybook/react';
-import SignupForm from './SignupForm';
+import SignInForm from './SignInForm';
 
 const Background = styled.div`
     width: 30%; 
@@ -12,6 +12,6 @@ const Background = styled.div`
 storiesOf('Molecules/SignupForm', module)
     .add('SignupForm', () => 
         <Background>
-            <SignupForm />
+            <SignInForm />
         </Background>
     )

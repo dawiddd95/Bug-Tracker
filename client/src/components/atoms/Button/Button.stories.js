@@ -38,7 +38,7 @@ storiesOf('Atoms/Button', module)
     </Button>
   ))
   .add('Transparent', () => (
-    <Button background={theme.background.transparent} color={theme.color.secondary} uppercase>
+    <Button background={theme.background.transparent} color={theme.color.secondary}>
       Users
     </Button>
   ));
