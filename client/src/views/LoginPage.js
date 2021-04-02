@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 // W hooku formika używamy już tylko useFormik
 import { useFormik } from 'formik';
-import StorePageTemplate from 'templates/StorePageTemplate';
+import StorePageTemplate from 'templates/MainPageTemplate';
 import { Button } from 'components/atoms/Button/Button';
 import { Input } from 'components/atoms/Input/Input';
 import { Strong } from 'components/atoms/Strong/Strong';

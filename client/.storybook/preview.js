@@ -7,7 +7,6 @@ export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
 };
 
-// Musimy dodać decorator ThemeProvider oraz do React Router
 export const decorators = [
   (story) => <ThemeProvider theme={theme}> {story()} </ThemeProvider>,
   (story) => <BrowserRouter> {story()} </BrowserRouter>,

@@ -1,9 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-// Globalne style to style jakie mają być w obrębie całej aplikacji, nie ma tam dużo rzeczy i są one podstawowe.
-// Jakiś typ czcionki dla aplikacji,
-// Jakaś może stała wielkość czcionek
-// może jakiś padding dla body, jeśli mamy zawsze jakiś navbar boczny na position: fix, bo wtedy content będzie uciekał pod element z fixem
 const GlobalStyle = createGlobalStyle`
    *, *::before, *::after {
       font-style: normal;
