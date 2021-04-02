@@ -25,6 +25,7 @@ export const DropdownWrapper = styled.div`
     margin: 55px 70px 0 0;
     position: absolute;
     box-shadow: 0 0 7px 0 rgba(0,0,0,0.2);
+    background-color: white;
 
     display: flex;
     flex-direction: column;
