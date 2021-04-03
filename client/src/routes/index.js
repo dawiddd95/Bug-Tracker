@@ -2,9 +2,9 @@
 // after maybe like this: /projects/:id/tickets/:id/comments
 export const routes = {
   home: '/',
-  forgotPassword: '/forgot-password',
-  signIn: '/sign-in',
-  signUp: '/sign-up',
+  forgotPassword: '/auth/forgot-password',
+  signIn: '/auth/sign-in',
+  signUp: '/auth/sign-up',
   projects: '/projects',
   project: '/projects/:id',
   tickets: '/tickets',

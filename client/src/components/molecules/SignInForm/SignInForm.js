@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { theme } from 'theme/mainTheme';
+import { routes } from 'routes/index';
 import { Input } from 'components/atoms/Input/Input';
 import { Span } from 'components/atoms/Span/Span';
 import { StyledLink } from 'components/atoms/Link/Link';
@@ -41,12 +42,6 @@ const SignInForm = () => {
             >
             {({ handleSubmit }) => (
                 <S.StyledForm onSubmit={handleSubmit}>
-                    <S.InnerWrapper>
-                        <S.StyledSpan>
-                            Sign in as: <S.StyledStrong>{signInAs}</S.StyledStrong> 
-                        </S.StyledSpan>
-                        <StyledLink to='/forgot-password' color>Forgot your password?</StyledLink>
-                    </S.InnerWrapper>
                     <Input
                         type="text"
                         name="email"
@@ -96,6 +91,12 @@ const SignInForm = () => {
                     >
                         Sign in
                     </S.StyledButton>
+                    <S.InnerWrapper>
+                        <S.StyledSpan>
+                            You sign in as: <S.StyledSpan underline>{signInAs}</S.StyledSpan>
+                        </S.StyledSpan>
+                        <StyledLink to={routes.forgotPassword} color>Forgot your password?</StyledLink>
+                    </S.InnerWrapper>
                 </S.StyledForm>
             )}
             </Formik>
