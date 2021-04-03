@@ -5,7 +5,8 @@ import { routes } from 'routes';
 // Skoro to jest plik index.js to nie musimy podawać jego nazwy jako store/index.js
 // import store from 'store';
 import MainTemplate from 'templates/MainTemplate';
-import HomePage from 'views/Homepage/HomePage';
+import SignInPage from 'views/SignInPage/SignInPage';
+import SignUpPage from './SignUpPage/SignUpPage';
 
 
 const Root = () => (
@@ -13,7 +14,8 @@ const Root = () => (
 		<BrowserRouter>
 			<MainTemplate>
 			<Switch>
-				<Route exact path={routes.home} component={HomePage} />
+				<Route exact path={routes.home} component={SignInPage} />
+				<Route exact path={routes.signUp} component={SignUpPage} />
 			</Switch>
 			</MainTemplate>
 		</BrowserRouter>

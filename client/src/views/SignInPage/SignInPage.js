@@ -6,9 +6,9 @@ import engIcon from 'assets/icons/eng.svg';
 import { routes } from 'routes/index';
 import { Span } from 'components/atoms/Span/Span';
 import { Strong } from 'components/atoms/Strong/Strong';
-import * as S from './StyledHomePage';
+import * as S from './StyledSignInPage';
 
-const HomePage = () => {
+const SignInPage = () => {
     return (
         <S.Wrapper>
             <AuthPageTemplate>
@@ -41,4 +41,4 @@ const HomePage = () => {
     );
 };
 
-export default HomePage;
+export default SignInPage;
