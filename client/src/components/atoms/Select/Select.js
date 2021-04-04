@@ -4,7 +4,6 @@ import Select from 'react-select';
 export const ReactSelect = styled(Select)`
   height: 40px;
   width: 200px;
-  padding-left: 20px;
   outline: 0;
   border-radius: 5px;
   font-weight: 200;

@@ -10,6 +10,7 @@ const SignUpPage = () => {
             <AuthPageTemplate>
                 <S.InnerWrapper>
                     <S.AuthContentWrapper>
+                        {/* if context Alert tutaj dać context */}
                         <S.StyledHeader big>
                             Bug Tracker
                         </S.StyledHeader>

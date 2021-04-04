@@ -2,34 +2,52 @@ import React, { useState } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Input } from 'components/atoms/Input/Input';
-import { ReactSelect } from 'components/atoms/Select/Select';
 import * as S from './StyledSignUpForm';
-
 
 const options = [
     { value: 'Admin', label: 'Admin' },
-    { value: 'ProjectLeader', label: 'ProjectLeader' },
+    { value: 'ProjectLeader', label: 'Project Leader' },
     { value: 'Developer', label: 'Developer' },
     { value: 'Submitter', label: 'Submitter' },
 ];
+
 
 const SignUpForm = () => {
     // useState WSZYSTKIE STANY JEŚLI POTRZEBNE
     // moglibyśmy tutaj też zdefiniować funkcję, zamiast pisać na żywca wszystko w ciele onSubmit={}
     const [selectedOption, setSelectedOption] = useState({ value: 'Admin', label: 'Admin' });
+    // const [isSubmit, setIsSubmit] = useState(false);
 
-    const change = (selected) => {
+    const change = selected => {
         setSelectedOption(selected);
     };
+
+    const submitForm = values => {
+        // setIsSubmit(true);
+        // zmiana loading
+        // wysłanie na server
+        // po wysłaniu loading na false
+
+        console.log(values);
+    }
 
     return (
         <>
             <Formik
-                initialValues={{ email: '', password: '' }}
+                initialValues={{ 
+                    name: '',
+                    surname: '',
+                    email: '',
+                    password: '',
+                    confirmPassword: '',
+                }}
                 onSubmit={values => {
+                    submitForm(values);
                     // Tutaj logika do fetcha
                     // axios.post, zmiany stanów etc.  
-                    return values;
+
+                    // console.log(values)
+                    // return values;
                 }}
                 // Walidacja formika z Yup
                 validationSchema={Yup.object().shape({
@@ -65,26 +83,35 @@ const SignUpForm = () => {
                         name="name"
                         placeholder="Name"
                     />
+                    <S.FormError name="name" component="span" />
                     <Input
                         type="text"
                         name="surname"
                         placeholder="Surname"
                     />
+                    <S.FormError name="surname" component="span" />
                     <Input
                         type="text"
                         name="email"
                         placeholder="Email"
                     />
-                    <ReactSelect value={selectedOption} onChange={() => change()} options={options} />
+                    <S.FormError name="email" component="span" />
                     <Input
                         type="password"
                         name="password"
                         placeholder="Password"
                     />
+                    <S.FormError name="password" component="span" />
                     <Input 
                         type="password"
                         name="confirmPassword"
                         placeholder="Confirm password"
+                    />
+                    <S.FormError name="confirmPassword" component="span" />
+                    <S.StyledReactSelect 
+                        value={selectedOption} 
+                        options={options} 
+                        onChange={() => change()} 
                     />
                     <S.StyledButton 
                         type="submit" 
