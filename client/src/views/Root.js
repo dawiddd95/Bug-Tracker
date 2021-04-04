@@ -7,6 +7,7 @@ import { routes } from 'routes';
 import MainTemplate from 'templates/MainTemplate';
 import SignInPage from 'views/SignInPage/SignInPage';
 import SignUpPage from './SignUpPage/SignUpPage';
+import ForgotPasswordPage from './ForgotPasswordPage/ForgotPasswordPage';
 
 
 const Root = () => (
@@ -16,6 +17,7 @@ const Root = () => (
 			<Switch>
 				<Route exact path={routes.home} component={SignInPage} />
 				<Route exact path={routes.signUp} component={SignUpPage} />
+				<Route exact path={routes.forgotPassword} component={ForgotPasswordPage} />
 			</Switch>
 			</MainTemplate>
 		</BrowserRouter>
