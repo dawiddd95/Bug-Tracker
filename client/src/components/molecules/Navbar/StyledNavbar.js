@@ -6,7 +6,8 @@ import { ButtonIcon } from 'components/atoms/ButtonIcon/ButtonIcon';
 
 export const Wrapper = styled.nav`
     width: 200px;
-    height: 100vh;
+    min-height: 100vh;
+    position: fixed;
     background-color: ${ ({theme}) => theme.background.white};
     border-right: ${ ({theme}) => `1px solid ${theme.background.border}`};
 

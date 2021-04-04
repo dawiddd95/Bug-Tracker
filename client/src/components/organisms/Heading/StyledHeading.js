@@ -2,9 +2,11 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 100%;
+  position: fixed;
   display: flex;
   justify-content: flex-end;
   border-bottom: ${({ theme }) => `1px solid ${theme.background.border}`};
+  background-color: ${({ theme }) => theme.background.white};
 `;
 
 export const InnerWrapper = styled.div`
