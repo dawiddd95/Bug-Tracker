@@ -18,11 +18,19 @@ export const InnerWrapper = styled.div`
     min-height: 100vh;
     background-color: ${({ theme }) => theme.background.white};
     transform: scaleX(-1);
+
+    @media (max-width: 768px) {
+        width: 100%;
+    }
 `
 
 export const AuthContentWrapper = styled.div`
     margin: 0 50px;
-    padding-top: 70px;
+    padding: 70px 0;
+
+    @media (max-width: 768px) {
+        margin: 0 20px;
+    }
 `
 
 export const StyledHeader = styled(Header)`

@@ -17,6 +17,21 @@ export const InnerWrapper = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @media (max-width: 440px) {
+        display: flex;
+        flex-wrap: wrap;
+
+        span {
+            margin: 0 60px 0 0;
+        }
+    }
+
+    @media (max-width: 435px) {
+        span {
+            margin-bottom: 20px;
+        }
+    }
 `
 
 export const StyledSpan = styled(Span)`
@@ -32,6 +47,23 @@ export const SignInAsWrapper = styled.div`
 
     button {
         padding: 0 10px;
+    }
+
+    @media (max-width: 768px) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    @media (max-width: 440px) {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        span,
+        button {
+            margin-right: auto;
+            padding: 0;
+        }
     }
 `
 
