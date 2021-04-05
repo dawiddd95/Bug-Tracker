@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Input } from 'components/atoms/Input/Input';
+import { Spinner } from 'components/atoms/Spinner/StyledSpinner';
 import * as S from './StyledSignUpForm';
 
 const options = [
@@ -16,19 +17,23 @@ const SignUpForm = () => {
     // useState WSZYSTKIE STANY JEŚLI POTRZEBNE
     // moglibyśmy tutaj też zdefiniować funkcję, zamiast pisać na żywca wszystko w ciele onSubmit={}
     const [selectedOption, setSelectedOption] = useState({ value: 'Admin', label: 'Admin' });
-    // const [isSubmit, setIsSubmit] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     const change = selected => {
         setSelectedOption(selected);
     };
 
-    const submitForm = values => {
+    const handleOnSubmit = values => {
+        console.log(values)
+        // Tutaj logika do fetcha
+        // axios.post, zmiany stanów etc.  
         // setIsSubmit(true);
         // zmiana loading
         // wysłanie na server
         // po wysłaniu loading na false
+        setIsLoading(true);
 
-        console.log(values);
+        setInterval( () => setIsLoading(false), 3000);
     }
 
     return (
@@ -41,15 +46,7 @@ const SignUpForm = () => {
                     password: '',
                     confirmPassword: '',
                 }}
-                onSubmit={values => {
-                    submitForm(values);
-                    // Tutaj logika do fetcha
-                    // axios.post, zmiany stanów etc.  
-
-                    // console.log(values)
-                    // return values;
-                }}
-                // Walidacja formika z Yup
+                onSubmit={values => handleOnSubmit(values)}
                 validationSchema={Yup.object().shape({
                     name: Yup
                         .string()
@@ -116,7 +113,9 @@ const SignUpForm = () => {
                     <S.StyledButton 
                         type="submit" 
                         backround="white"
+                        disabled={isLoading}
                     >
+                        {isLoading && <Spinner />}
                         Sign up
                     </S.StyledButton>
                 </S.StyledForm>

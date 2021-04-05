@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Form } from 'formik';
+import styled, { css } from 'styled-components';
+import { Form, ErrorMessage } from 'formik';
 import { Span } from 'components/atoms/Span/Span';
 import { Button } from 'components/atoms/Button/Button';
 
@@ -32,6 +32,12 @@ export const InnerWrapper = styled.div`
             margin-bottom: 20px;
         }
     }
+`
+
+export const FormError = styled(ErrorMessage)`
+    margin: -10px auto 10px 0;
+    color: ${({ theme }) => theme.background.red};
+    font-size: 12px;
 `
 
 export const StyledSpan = styled(Span)`
@@ -71,4 +77,16 @@ export const StyledButton = styled(Button)`
     width: 100%;
     height: 40px;
     font-size: 14px;
+
+    ${({ disabled }) =>
+		disabled &&
+		css`
+		color: ${({ theme }) => theme.background.white};
+		background-color: ${({ theme }) => theme.background.primary};
+		
+		:hover {
+			background-color: ${({ theme }) => theme.background.primary};
+			cursor: not-allowed;
+		}
+	`}
 `
