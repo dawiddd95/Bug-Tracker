@@ -9,6 +9,7 @@ import MainTemplate from 'templates/MainTemplate';
 import SignUpPage from 'views/SignUpPage/SignUpPage';
 import ForgotPasswordPage from 'views/ForgotPasswordPage/ForgotPasswordPage';
 import DashboardPage from 'views/DashboardPage/DashboardPage';
+import ErrorPage from './ErrorPage/ErrorPage';
 
 
 const Root = () => (
@@ -22,6 +23,7 @@ const Root = () => (
 					<Route exact path={routes.home} component={DashboardPage} />
 					<Route exact path={routes.signUp} component={SignUpPage} />
 					<Route exact path={routes.forgotPassword} component={ForgotPasswordPage} />
+					<Route component={ErrorPage} />
 				</Switch>
 			</MainTemplate>
 		</BrowserRouter>
