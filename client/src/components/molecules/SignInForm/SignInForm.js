@@ -14,15 +14,23 @@ const SignInForm = () => {
     // useState WSZYSTKIE STANY JEŚLI POTRZEBNE
     // moglibyśmy tutaj też zdefiniować funkcję, zamiast pisać na żywca wszystko w ciele onSubmit={}
     const [signInAs, setSignInAs] = useState('Admin');
+    const [demoUserEmail, setDemoUserEmail] = useState('dawlyc1995@gmail.com');
+    const [demoUserPassword, setDemoUserPassword] = useState('ZAQ!2wsx');
 
-    const onClickBtn = signAs => {
+    const onClickBtn = (signAs, email) => {
         setSignInAs(signAs);
+        setDemoUserEmail(email);
+        setDemoUserPassword('ZAQ!2wsx');
     }
 
     return (
         <>
             <Formik
-                initialValues={{ email: '', password: '' }}
+                enableReinitialize
+                initialValues={{ 
+                    email: demoUserEmail, 
+                    password: demoUserPassword 
+                }}
                 onSubmit={values => {
                     // Tutaj logika do fetcha
                     // axios.post, zmiany stanów etc.  
@@ -59,28 +67,28 @@ const SignInForm = () => {
                         <Button 
                             background={theme.background.transparent}
                             color={theme.background.primary}
-                            onClick={() => onClickBtn('Admin')}
+                            onClick={() => onClickBtn('Admin', 'dawlyc1995@gmail.com')}
                         >
                             Admin
                         </Button>
                         <Button 
                             background={theme.background.transparent}
                             color={theme.background.primary}
-                            onClick={() => onClickBtn('Project Leader')}
+                            onClick={() => onClickBtn('Project Leader', 'wpolanska@gmail.com')}
                         >
                             Project Leader
                         </Button>
                         <Button 
                             background={theme.background.transparent}
                             color={theme.background.primary}
-                            onClick={() => onClickBtn('Developer')}
+                            onClick={() => onClickBtn('Developer', 'jjablonska@gmail.com')}
                         >
                             Developer
                         </Button>
                         <Button 
                             background={theme.background.transparent}
                             color={theme.background.primary}
-                            onClick={() => onClickBtn('Submitter')}
+                            onClick={() => onClickBtn('Submitter', 'jjastrzebska@gmail.com')}
                         >
                             Submitter
                         </Button>
