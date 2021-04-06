@@ -1,19 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Formik } from 'formik';
-import * as Yup from 'yup';
 import { Input } from 'components/atoms/Input/Input';
+import * as Yup from 'yup';
+import Alert from '../Alert/Alert';
 import * as S from './StyledForgotPasswordForm';
 
 
+
 const ForgotPasswordForm = () => {
+    const [isSubmit, setIsSubmit] = useState(false);
+
     return (
         <>
+            {isSubmit && <Alert type="error" txt="We are temporarily unable to perform this operation" />}
             <Formik
                 initialValues={{ 
                     email: ''
                 }}
-                onSubmit={values => {
-                    console.log(values);
+                onSubmit={() => {
+                    setIsSubmit(true);
                 }}
                 validationSchema={Yup.object().shape({
                     email: Yup

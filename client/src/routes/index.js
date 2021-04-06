@@ -2,14 +2,15 @@
 // after maybe like this: /projects/:id/tickets/:id/comments
 export const routes = {
   home: '/',
+  dashboard: '/user/dashboard',
   forgotPassword: '/auth/forgot-password',
   signIn: '/auth/sign-in',
   signUp: '/auth/sign-up',
-  projects: '/projects',
-  project: '/projects/:id',
-  tickets: '/tickets',
-  ticket: '/tickets/:id',
+  projects: 'user/projects',
+  project: 'user/projects/:id',
+  tickets: 'user/tickets',
+  ticket: 'user/tickets/:id',
   profile: '/user/:id/profile',
-  users: '/admin/users',
-  user : '/admin/users/:id',
+  users: 'user/admin/users',
+  user : 'user/admin/users/:id',
 };

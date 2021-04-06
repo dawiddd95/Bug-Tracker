@@ -80,6 +80,7 @@ const SignInForm = () => {
                             Sign in as:
                         </Span>
                         <Button 
+                            type="button"
                             background={theme.background.transparent}
                             color={theme.background.primary}
                             onClick={() => onClickBtn('Admin', 'dawlyc1995@gmail.com')}
@@ -87,6 +88,7 @@ const SignInForm = () => {
                             Admin
                         </Button>
                         <Button 
+                            type="button"
                             background={theme.background.transparent}
                             color={theme.background.primary}
                             onClick={() => onClickBtn('Project Leader', 'wpolanska@gmail.com')}
@@ -94,6 +96,7 @@ const SignInForm = () => {
                             Project Leader
                         </Button>
                         <Button 
+                            type="button"
                             background={theme.background.transparent}
                             color={theme.background.primary}
                             onClick={() => onClickBtn('Developer', 'jjablonska@gmail.com')}
@@ -101,6 +104,7 @@ const SignInForm = () => {
                             Developer
                         </Button>
                         <Button 
+                            type="button"
                             background={theme.background.transparent}
                             color={theme.background.primary}
                             onClick={() => onClickBtn('Submitter', 'jjastrzebska@gmail.com')}
