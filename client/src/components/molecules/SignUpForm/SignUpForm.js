@@ -1,43 +1,36 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { singupApi } from 'utils/api';
 import { Input } from 'components/atoms/Input/Input';
 import { Spinner } from 'components/atoms/Spinner/StyledSpinner';
+import Alert from '../Alert/Alert';
 import * as S from './StyledSignUpForm';
-
-const options = [
-    { value: 'Admin', label: 'Admin' },
-    { value: 'ProjectLeader', label: 'Project Leader' },
-    { value: 'Developer', label: 'Developer' },
-    { value: 'Submitter', label: 'Submitter' },
-];
 
 
 const SignUpForm = () => {
-    // useState WSZYSTKIE STANY JEŚLI POTRZEBNE
-    // moglibyśmy tutaj też zdefiniować funkcję, zamiast pisać na żywca wszystko w ciele onSubmit={}
-    const [selectedOption, setSelectedOption] = useState({ value: 'Admin', label: 'Admin' });
     const [isLoading, setIsLoading] = useState(false);
+    const [isSuccess, setSuccess] = useState(false);
+    const [message, setMessage] = useState('');
+    const [alert, setAlert] = useState(false);
 
-    const change = selected => {
-        setSelectedOption(selected);
-    };
-
-    const handleOnSubmit = values => {
-        console.log(values)
-        // Tutaj logika do fetcha
-        // axios.post, zmiany stanów etc.  
-        // setIsSubmit(true);
-        // zmiana loading
-        // wysłanie na server
-        // po wysłaniu loading na false
+    const handleOnSubmit = async values => {
+        setAlert(false);
         setIsLoading(true);
-
-        setInterval( () => setIsLoading(false), 3000);
+        
+        const response = await axios.post(singupApi, values);
+        const {data} = response;
+        
+        setIsLoading(false);
+        setSuccess(data.success);
+        setMessage(data.msg);
+        setAlert(true);
     }
 
     return (
         <>
+            {alert && <Alert type={isSuccess ? "success" : "error"} txt={message} />}
             <Formik
                 initialValues={{ 
                     name: '',
@@ -45,6 +38,7 @@ const SignUpForm = () => {
                     email: '',
                     password: '',
                     confirmPassword: '',
+                    type: 'Admin'
                 }}
                 onSubmit={values => handleOnSubmit(values)}
                 validationSchema={Yup.object().shape({
@@ -73,7 +67,7 @@ const SignUpForm = () => {
                        .oneOf([Yup.ref('password'), null], 'Passwords must match'),
                  })}
             >
-            {({ handleSubmit }) => (
+            {({ handleSubmit, handleChange }) => (
                 <S.StyledForm onSubmit={handleSubmit}>
                     <Input
                         type="text"
@@ -105,11 +99,12 @@ const SignUpForm = () => {
                         placeholder="Confirm password"
                     />
                     <S.FormError name="confirmPassword" component="span" />
-                    <S.StyledReactSelect 
-                        value={selectedOption} 
-                        options={options} 
-                        onChange={() => change()} 
-                    />
+                    <Input name="type" as="select" onChange={handleChange}>
+                        <option value="Admin">Admin</option> 
+                        <option value="ProjectLeader">Project Leader</option> 
+                        <option value="Developer">Developer</option> 
+                        <option value="Submitter">Submitter</option> 
+                    </Input>
                     <S.StyledButton 
                         type="submit" 
                         backround="white"

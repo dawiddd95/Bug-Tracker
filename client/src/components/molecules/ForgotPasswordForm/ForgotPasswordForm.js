@@ -8,17 +8,17 @@ import * as S from './StyledForgotPasswordForm';
 
 
 const ForgotPasswordForm = () => {
-    const [isSubmit, setIsSubmit] = useState(false);
+    const [alert, setAlert] = useState(false);
 
     return (
         <>
-            {isSubmit && <Alert type="error" txt="We are temporarily unable to perform this operation" />}
+            {alert && <Alert type="error" txt="We are temporarily unable to perform this operation" />}
             <Formik
                 initialValues={{ 
                     email: ''
                 }}
                 onSubmit={() => {
-                    setIsSubmit(true);
+                    setAlert(true);
                 }}
                 validationSchema={Yup.object().shape({
                     email: Yup

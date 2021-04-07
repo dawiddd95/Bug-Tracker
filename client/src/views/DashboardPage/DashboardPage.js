@@ -15,7 +15,6 @@ const DashboardPage = () => {
                     </Header>
                 </S.InnerWrapper>
             </S.Wrapper>
-
         </MainPageTemplate>
     );
 }
