@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Button } from 'components/atoms/Button/Button';
 import { StyledLink } from 'components/atoms/Link/Link';
 
 export const Wrapper = styled.div`
@@ -34,4 +35,14 @@ export const DropdownWrapper = styled.div`
 export const DropdownStyledLink = styled(StyledLink)`
     padding: 16px 12px;
     border-bottom: ${ ({theme}) => `0.5px dotted ${theme.background.border}`};;
+`
+
+export const StyledButton = styled(Button)`
+    width: 100%;
+    height: 50px;
+    margin-right: auto;
+    padding: 0 12px;
+
+    display: flex;
+    justify-content: flex-start;
 `

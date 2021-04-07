@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
+import { Redirect } from 'react-router';
 import { theme } from 'theme/mainTheme';
 import { routes } from 'routes/index';
 import { Input } from 'components/atoms/Input/Input';
@@ -8,19 +10,20 @@ import { Span } from 'components/atoms/Span/Span';
 import { StyledLink } from 'components/atoms/Link/Link';
 import { Button } from 'components/atoms/Button/Button';
 import { Spinner } from 'components/atoms/Spinner/StyledSpinner';
+import { signinApi } from 'utils/api';
+import Alert from '../Alert/Alert';
 import * as S from './StyledSignInForm';
 
 
 
 const SignInForm = () => {
-    // useState WSZYSTKIE STANY JEŚLI POTRZEBNE
-    // moglibyśmy tutaj też zdefiniować funkcję, zamiast pisać na żywca wszystko w ciele onSubmit={}
     const [signInAs, setSignInAs] = useState('Admin');
     const [demoUserEmail, setDemoUserEmail] = useState('dawlyc1995@gmail.com');
     const [demoUserPassword, setDemoUserPassword] = useState('ZAQ!2wsx');
     const [isLoading, setIsLoading] = useState(false);
-    // Warunek, że jeśli nie jest null to pokazę alert, zamiast stosowania is submmit
-    // const [error, setError] = useState(null);
+    const [isSuccess, setSuccess] = useState(false);
+    const [message, setMessage] = useState('');
+    const [alert, setAlert] = useState(false);
 
     const onClickBtn = (signAs, email) => {
         setSignInAs(signAs);
@@ -28,22 +31,24 @@ const SignInForm = () => {
         setDemoUserPassword('ZAQ!2wsx');
     }
 
-    const handleOnSubmit = values => {
-        console.log(values)
-        // Tutaj logika do fetcha
-        // axios.post, zmiany stanów etc.  
-        // setIsLoading(true);
-        // setError(null)
-        // zmiana loading
-        // wysłanie na server
-        // po wysłaniu loading na false
+    const handleOnSubmit = async values => {
+        setAlert(false);
         setIsLoading(true);
-
-        setInterval( () => setIsLoading(false), 3000);
+        
+        const response = await axios.post(signinApi, values)
+        const {data} = response
+        if(data.success) sessionStorage.setItem('session', true)
+        
+        setIsLoading(false);
+        setSuccess(data.success);
+        setMessage(data.msg);
+        setAlert(true);
     }
 
     return (
         <>
+            {alert && <Alert type={isSuccess ? "success" : "error"} txt={message} />}
+            {isSuccess && <Redirect to={routes.dashboard} />}
             <Formik
                 enableReinitialize
                 initialValues={{ 

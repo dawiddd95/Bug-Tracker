@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
-import { singupApi } from 'utils/api';
+import { signupApi } from 'utils/api';
 import { Input } from 'components/atoms/Input/Input';
 import { Spinner } from 'components/atoms/Spinner/StyledSpinner';
 import Alert from '../Alert/Alert';
@@ -19,7 +19,7 @@ const SignUpForm = () => {
         setAlert(false);
         setIsLoading(true);
         
-        const response = await axios.post(singupApi, values);
+        const response = await axios.post(signupApi, values);
         const {data} = response;
         
         setIsLoading(false);

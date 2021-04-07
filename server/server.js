@@ -5,6 +5,7 @@ import cookieParser from 'cookie-parser'
 import dotenv from 'dotenv'
 
 import signupRoute from './routes/signup'
+import signinRoute from './routes/signin'
 
 dotenv.config();   
 
@@ -15,5 +16,6 @@ app.use(bodyParser.json())
 app.use(bodyParser.urlencoded())
 
 app.use(signupRoute)
+app.use(signinRoute)
 
 app.listen(5000, () => console.log('Now browse to localhost:5000'))

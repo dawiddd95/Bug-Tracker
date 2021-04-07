@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
     background-size: cover;
     background-position: center;
     transform: scaleX(-1);
+    overflow: hidden;
 `
 
 export const InnerWrapper = styled.div`
