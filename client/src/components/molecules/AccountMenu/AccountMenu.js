@@ -40,11 +40,11 @@ const AccountMenu = () => {
                 {
                     isVisible && (
                         <S.DropdownWrapper onMouseOver={onMouseOver}>
-                            <S.DropdownStyledLink to='/settings'>
+                            <S.DropdownStyledLink to={routes.settings}>
                                 <ButtonIcon src={settingsIcon} />
                                 Settings
                             </S.DropdownStyledLink>
-                            <S.DropdownStyledLink to='/profile'>
+                            <S.DropdownStyledLink to={routes.profile}>
                                 <ButtonIcon src={profileIcon} />
                                 Profile
                             </S.DropdownStyledLink>

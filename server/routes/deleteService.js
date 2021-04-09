@@ -1,8 +1,8 @@
 import express from 'express';
 import Sequelize from 'sequelize';
 
-import models from '../../db/models';
-import checkToken from '../../services/checkToken';
+import models from '../db/models';
+import checkToken from '../services/checkToken';
 
 const router = express.Router();
 const Op = Sequelize.Op;

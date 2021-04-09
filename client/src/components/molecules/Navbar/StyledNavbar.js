@@ -29,7 +29,7 @@ export const LinksWrapper = styled.div`
 ` 
 
 export const NavbarStyledLink = styled(NavLink)`
-    height: 40px;
+    height: 50px;
     margin-bottom: 10px;
     padding: 0 15px;
     color: ${({ theme }) => theme.background.grayDark};
@@ -47,6 +47,7 @@ export const NavbarStyledLink = styled(NavLink)`
 
     &.active {
         background-color: ${({theme}) => lighten('0.3', theme.background.primary)};
+        color: ${({ theme }) => theme.background.primary};
     }
 `
 

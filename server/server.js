@@ -6,6 +6,10 @@ import dotenv from 'dotenv'
 
 import signupRoute from './routes/signup'
 import signinRoute from './routes/signin'
+import listProjectsRoute from './routes/listProjects'
+import newProject from './routes/newProject'
+import getProject from './routes/getProject'
+import editProject from './routes/editProject'
 
 dotenv.config();   
 
@@ -17,5 +21,9 @@ app.use(bodyParser.urlencoded())
 
 app.use(signupRoute)
 app.use(signinRoute)
+app.use(listProjectsRoute)
+app.use(newProject)
+app.use(getProject)
+app.use(editProject)
 
 app.listen(5000, () => console.log('Now browse to localhost:5000'))

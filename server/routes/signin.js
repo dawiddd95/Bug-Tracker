@@ -20,7 +20,7 @@ router.post('/api/auth/signin', async (req, res) => {
       name: user.name,
       surname: user.surname,
       email: user.email, 
-      // roles: ['all']
+      type: user.type
    }, process.env.TOKEN_SECRET);
 
    res.cookie('token', token, { httpOnly: true }).json({success: true, msg: ''}).status(200);
