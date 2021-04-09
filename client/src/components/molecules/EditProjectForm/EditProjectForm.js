@@ -26,19 +26,28 @@ const EditProjectForm = ({project}) => {
         setAlert(false);
         setIsLoading(true);
 
-        const response = await axios.patch(`${projectsApi}/${project.id}/edit`, values);
-        const {data} = response
-        
-        if(!data) {
-            setAlert(true)
-        }
-        else {
-            dispatch(actions.editProject(data.project))
-            setSuccess(true)
-        }
+        // to może wrzucić do helpers
+        await axios.patch(`${projectsApi}/${project.id}/edit`, values)
+            .then(function(response) {
+                const {data} = response
+                
+                dispatch(actions.editProject(data.project))
+                setSuccess(true)
+                
+                setIsLoading(false);
+                setSuccess(data.success);
+                setMessage(data.msg);
+                setAlert(true);
+            })
+            .catch(function(error) {
+                setAlert(true);
+                setSuccess(false);
 
-        setIsLoading(false);
-        setMessage(data.msg);    
+                if(error.response.status === 400) setMessage('400 (Invalid Token)')
+                if(error.response.status === 401) setMessage('401 (Unauthorized)')
+                if(error.response.status === 403) setMessage('403 (Forbidden) Not allowed to continue this operation')   
+                if(error.response.status === 500) setMessage(`500 (Internal Server Error) ${error.response.data }`)
+            })
     }
 
     return (
