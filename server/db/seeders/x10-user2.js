@@ -5,7 +5,7 @@ module.exports = {
     return queryInterface.bulkUpdate('Users', {
       projectId: 2,
     }, {
-      id: 8,
+      id: 308,
     });
   },
 

@@ -34,28 +34,27 @@ const SignInForm = () => {
     const handleOnSubmit = async values => {
         setAlert(false);
         setIsLoading(true);
-        
-        // to może wrzucić do helpers
-        await axios.post(signinApi, values)
-            .then(function(response) {
-                const {data} = response
-                if(data.success) sessionStorage.setItem('session', true)
-                
-                setIsLoading(false);
-                setSuccess(data.success);
-                setMessage(data.msg);
-                setAlert(true);
-            })
-            .catch(function(error) {
-                setAlert(true);
-                setSuccess(false);
-                setIsLoading(false);
 
-                if(error.response.status === 400) setMessage('400 (Invalid Token)')
-                if(error.response.status === 401) setMessage('401 (Unauthorized)')
-                if(error.response.status === 403) setMessage('403 (Forbidden) Not allowed to continue this operation')
-                if(error.response.status === 500) setMessage(`500 (Internal Server Error) ${error.response.data }`)
-            })
+        try {
+            const response = await axios.post(signinApi, values)
+            const {data} = response
+            
+            if(data.success) sessionStorage.setItem('session', true)
+            
+            setIsLoading(false);
+            setSuccess(data.success);
+            setMessage(data.msg);
+            setAlert(true);
+        } catch (error) {
+            setAlert(true);
+            setSuccess(false);
+            setIsLoading(false);
+
+            if(error.response.status === 400) setMessage('400 (Invalid Token)')
+            if(error.response.status === 401) setMessage('401 (Unauthorized)')
+            if(error.response.status === 403) setMessage('403 (Forbidden) Not allowed to continue this operation')
+            if(error.response.status === 500) setMessage(`500 (Internal Server Error) ${error.response.data }`)
+        }
     }
 
     return (

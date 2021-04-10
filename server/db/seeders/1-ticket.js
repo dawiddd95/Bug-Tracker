@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
       return queryInterface.bulkInsert('Tickets', [{
-        id: 1,
+        id: 301,
         title: 'Bug with models relations',
         description: 'Ticket model relation hasMany call some bugs',
         status: 'new',
@@ -15,7 +15,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        id: 2,
+        id: 302,
         title: 'Voting is incomplete',
         description: 'form have not gender radio button',
         status: 'new',
@@ -27,7 +27,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        id: 3,
+        id: 303,
         title: 'Refactor code',
         description: 'refactor some code',
         status: 'new',

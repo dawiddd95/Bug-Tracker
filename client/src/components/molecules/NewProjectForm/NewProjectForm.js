@@ -25,18 +25,29 @@ const NewProjectForm = () => {
         setAlert(false);
         setIsLoading(true);
 
-        const response = await axios.post(projectsApi, values);
-        const {data} = response
-        
-        if(!data) setAlert(true)
-        else {
-            console.log(data)
-            dispatch(actions.addProject(data.project))
-            setSuccess(true)
-        }
+        try {
+            const response = await axios.post(projectsApi, values);
+            const {data} = response
+            
+            if(!data) setAlert(true)
+            else {
+                dispatch(actions.addProject(data.project))
+                setSuccess(true)
+            }
+            
+            setIsLoading(false);
+            setSuccess(data.success);
+            setMessage(data.msg);
+        } catch (error) {
+            setAlert(true);
+            setSuccess(false);
+            setIsLoading(false);
 
-        setIsLoading(false);
-        setMessage(data.msg);    
+            if(error.response.status === 400) setMessage('400 (Invalid Token)')
+            if(error.response.status === 401) setMessage('401 (Unauthorized)')
+            if(error.response.status === 403) setMessage('403 (Forbidden) Not allowed to continue this operation')
+            if(error.response.status === 500) setMessage(`500 (Internal Server Error) ${error.response.data }`)
+        }
     }
 
     return (

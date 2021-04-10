@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
       return queryInterface.bulkInsert('Comments', [{
-        id: 1,
+        id: 301,
         content: 'Something goes wrong?',
         ticketId: 1,
         authorId: 9,
@@ -11,7 +11,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        id: 2,
+        id: 302,
         content: 'Yes, could you solve this at once?',
         ticketId: 1,
         authorId: 5,
@@ -19,7 +19,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        id: 3,
+        id: 303,
         content: 'Everything is allright now',
         ticketId: 1,
         authorId: 9,
@@ -27,7 +27,7 @@ module.exports = {
         updatedAt: new Date(),
       },
       {
-        id: 4,
+        id: 304,
         content: 'Emoji is not visible. Can you fix this in this week?',
         ticketId: 3,
         authorId: 5,

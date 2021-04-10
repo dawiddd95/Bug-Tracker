@@ -18,10 +18,20 @@ const deleteProject = item => ({
    type: types.DELETE_PROJECT, item
 })
 
+const isFilterProject = item => ({
+   type: types.IS_FILTER, item
+})
+
+const filterProjects = item => ({
+   type: types.FILTER_PROJECTS, item
+})
+
 
 export default {
    addFetchedProjects,
    addProject,
    editProject,
-   deleteProject
+   deleteProject,
+   isFilterProject,
+   filterProjects
 }

@@ -5,7 +5,7 @@ module.exports = {
     return queryInterface.bulkUpdate('Tickets', {
       projectId: 1,
     }, {
-      id: 1,
+      id: 301,
     });
   },
 

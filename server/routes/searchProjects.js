@@ -7,13 +7,10 @@ import checkToken from '../services/checkToken';
 const router = express.Router();
 const Op = Sequelize.Op;
 
-router.post('/api/user/services/search', checkToken, async (req, res) => { 
-   const {id, name, priceFrom, priceTo} = req.body;
+router.post('/api/user/projects/search', checkToken, async (req, res) => {
+   const {id, name, desc} = req.body;
 
-   const searchFromPrice = priceFrom === '' ? 0 : priceFrom;
-   const searchToPrice = priceTo === '' ? 2147483646 : priceTo;
-
-   const searchResult = await models.Service.findAll({ where: {
+   const searchResult = await models.Project.findAll({ where: {
       id: id === '' 
          ?  {
                [Op.ne]: null
@@ -26,9 +23,13 @@ router.post('/api/user/services/search', checkToken, async (req, res) => {
          :  {
                [Op.iLike]: '%' + name + '%'
             },
-      price: {
-         [Op.between]: [searchFromPrice, searchToPrice] 
-      }  
+      description: desc === ''
+         ?  {
+               [Op.ne]: null
+            }
+         :  {
+               [Op.iLike]: '%' + desc + '%'
+            },
    }})
 
    res.json({data: searchResult})

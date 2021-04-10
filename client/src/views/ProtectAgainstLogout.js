@@ -12,7 +12,7 @@ const ProtectAgainstLogout = ({ component: Component }) => {
 }
 
 ProtectAgainstLogout.propTypes = {
-    component: PropTypes.oneOfType([PropTypes.element, PropTypes.node]).isRequired,
+    component: PropTypes.oneOfType([PropTypes.elementType, PropTypes.node]).isRequired,
 };
  
 export default ProtectAgainstLogout;

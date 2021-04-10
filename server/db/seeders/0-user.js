@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkInsert('Users', [{
-      id: 1,
+      id: 300,
       name: 'Dawid',
       surname: 'Lyc',
       email: 'dawlyc1995@gmail.com',
@@ -15,7 +15,7 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      id: 2,
+      id: 302,
       name: 'Natalia',
       surname: 'Stąpor',
       email: 'nstopor@gmail.com',
@@ -27,7 +27,7 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      id: 3,
+      id: 303,
       name: 'Aleksandra',
       surname: 'Bucia',
       email: 'abucia@gmail.com',
@@ -39,7 +39,7 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      id: 4,
+      id: 304,
       name: 'Patryk',
       surname: 'Kamyk',
       email: 'pkamyk@gmail.com',
@@ -51,7 +51,7 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      id: 5,
+      id: 305,
       name: 'Julia',
       surname: 'Jastrzębska',
       email: 'jjastrzebska@gmail.com',
@@ -63,7 +63,7 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      id: 6,
+      id: 306,
       name: 'Rafał',
       surname: 'Lange',
       email: 'rlange@gmail.com',
@@ -75,7 +75,7 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      id: 7,
+      id: 307,
       name: 'Wioletta',
       surname: 'Polańska',
       email: 'wpolanska@gmail.com',
@@ -87,7 +87,7 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      id: 8,
+      id: 308,
       name: 'Rita',
       surname: 'Rossweise',
       email: 'rrossweise@gmail.com',
@@ -99,7 +99,7 @@ module.exports = {
       updatedAt: new Date(),
     },
     {
-      id: 9,
+      id: 309,
       name: 'Justyna',
       surname: 'Jabłońska',
       email: 'jjablonska@gmail.com',

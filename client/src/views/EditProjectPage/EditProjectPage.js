@@ -30,7 +30,7 @@ const EditProjectPage = ({match}) => {
                     <S.StyledSpan>/</S.StyledSpan>
                     <StyledLink to={routes.projects}>Projects</StyledLink>
                     <S.StyledSpan>/ </S.StyledSpan>
-                    <StyledLink to={routes.projects}>project {parseInt(match.params.id,10)}</StyledLink>
+                    <StyledLink to={`/user/projects/${parseInt(match.params.id,10)}`}>project {parseInt(match.params.id,10)}</StyledLink>
                     <S.StyledSpan>/ Edit </S.StyledSpan>
                 </S.Breadcrumb>
                 <S.InnerWrapper>

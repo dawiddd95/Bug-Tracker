@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllProjects } from 'app/projects/operations';
 import { routes } from 'routes/index';
 import { theme } from 'theme/mainTheme';
 import MainPageTemplate from 'templates/MainPageTemplate';
@@ -6,7 +8,7 @@ import newIcon from 'assets/icons/new.svg';
 import binIcon from 'assets/icons/bin.svg';
 import exportIcon from 'assets/icons/export.svg';
 import SearchProjectForm from 'components/molecules/SearchProjectForm/SearchProjectForm';
-import ProjectsTable from 'components/molecules/ProjectsTable/ProjectsTable';
+import TableAntd from 'components/molecules/Table/Table';
 import { Header } from 'components/atoms/Header/Header';
 import { StyledLink } from 'components/atoms/Link/Link';
 import { Button } from 'components/atoms/Button/Button';
@@ -14,7 +16,47 @@ import { ButtonIcon } from 'components/atoms/ButtonIcon/ButtonIcon';
 import * as S from './StyledProjectsPage';
 
 
+/* eslint-disable */
+const columns = [
+    {
+        title: 'Id', 
+        dataIndex: 'id', 
+        key: 'id'
+    },
+    {
+        title: 'Name', 
+        dataIndex: 'name', 
+        key: 'name'
+    },
+    {
+        title: 'Description', 
+        dataIndex: 'description', 
+        key: 'description',
+    },
+    { 
+        title: 'Action', 
+        key: 'action',
+        render: ({id}) => 
+        <>
+            <S.Link color to={`/user/projects/${id}`}>View</S.Link>
+            <S.Link color to={`/user/projects/${id}/edit`}>Edit</S.Link>
+        </>
+    },
+];
+/* eslint-enable */
+
+
 const ProjectsPage = () => {
+    const dispatch = useDispatch();
+    const {projects, isFilter, filterProjects} = useSelector(state => state.projects)
+    const [isLoading, setIsLoading] = useState(false);
+
+    useEffect( async () => {
+        setIsLoading(true);
+        await dispatch(getAllProjects());
+        setIsLoading(false);
+    }, [])
+
     return (
         <MainPageTemplate>
             <S.Wrapper>
@@ -53,7 +95,11 @@ const ProjectsPage = () => {
                         </S.StyledHeader>
                         <SearchProjectForm />
                     </S.SearchWrapper>
-                    <ProjectsTable />
+                    <TableAntd 
+                        data={isFilter ? filterProjects : projects} 
+                        columns={columns}
+                        isLoading={isLoading}    
+                    />
                 </S.InnerWrapper>
             </S.Wrapper>
         </MainPageTemplate>

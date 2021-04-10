@@ -4,6 +4,8 @@ import types from './types';
 
 const INITIAL_STATE = {
    projects: [],
+   isFilter: false,
+   filterProjects: [],
 }
 
 /* eslint-disable */
@@ -30,6 +32,17 @@ const projectsReducer = (state = INITIAL_STATE, action) => {
             draftState.projects = draftState.projects.filter(project => 
                !action.item.includes(project.id))
          })
+
+      case types.IS_FILTER:
+         return produce(state, draftState => {
+            draftState.isFilter = action.item
+         })
+
+      case types.FILTER_PROJECTS:
+         return produce(state, draftState => {
+            draftState.filterProjects = action.item
+         })
+
 
       default:
          return state;
