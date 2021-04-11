@@ -1,9 +1,11 @@
 import { combineReducers } from 'redux';
 import projects from './app/projects';
+import tickets from './app/tickets';
 
 /* eslint-disable */
 const appReducer = combineReducers({
-   projects
+   projects,
+   tickets,
 })
 
 // reset redux store

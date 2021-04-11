@@ -11,14 +11,12 @@ router.delete('/api/user/projects', checkToken, async (req, res) => {
    const {id} = req.body;
 
    try {
-      models.Project.destroy({where: {
+      models.Project.destroy({
+         include: [
+            {model: models.Ticket, as: 'tickets'},
+         ],
+         where: {
          id: {
-            [Op.in]: id
-         }
-      }})
-
-      models.Ticket.destroy({where: {
-         projectId: {
             [Op.in]: id
          }
       }})

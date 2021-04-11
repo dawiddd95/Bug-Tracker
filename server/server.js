@@ -12,6 +12,9 @@ import getProject from './routes/getProject'
 import editProject from './routes/editProject'
 import searchProject from './routes/searchProjects'
 import deleteProject from './routes/deleteProject'
+import listTicketsRoute from './routes/listTickets'
+import newTicketRoute from './routes/newTicket'
+import listUsersRoute from './routes/listUsers'
 
 dotenv.config();   
 
@@ -29,5 +32,8 @@ app.use(getProject)
 app.use(editProject)
 app.use(searchProject)
 app.use(deleteProject)
+app.use(listTicketsRoute)
+app.use(newTicketRoute)
+app.use(listUsersRoute)
 
 app.listen(5000, () => console.log('Now browse to localhost:5000'))

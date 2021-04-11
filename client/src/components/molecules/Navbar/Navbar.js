@@ -1,7 +1,6 @@
 import React from 'react';
 import { routes } from 'routes/index';
 import dashboardIcon from 'assets/icons/dashboard.svg';
-import bugIcon from 'assets/icons/bug.svg';
 import projectIcon from 'assets/icons/project.svg';
 import userIcon from 'assets/icons/user.svg';
 import profileIcon from 'assets/icons/profile.svg';
@@ -22,10 +21,6 @@ const Navbar = () => {
                 <S.NavbarStyledLink to={routes.projects}>
                     <S.StyledButtonIcon src={projectIcon} />
                     Projects
-                </S.NavbarStyledLink>
-                <S.NavbarStyledLink to={routes.tickets}>
-                    <S.StyledButtonIcon src={bugIcon} />
-                    Tickets
                 </S.NavbarStyledLink>
                 <S.NavbarStyledLink to={routes.users}>
                     <S.StyledButtonIcon src={userIcon} />

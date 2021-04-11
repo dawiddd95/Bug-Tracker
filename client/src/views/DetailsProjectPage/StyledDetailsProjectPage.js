@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import { Span } from 'components/atoms/Span/Span';
+import { StyledLink } from 'components/atoms/Link/Link';
+import { Strong } from 'components/atoms/Strong/Strong';
 
 export const Wrapper = styled.div`
     width: 100%;
@@ -26,10 +28,33 @@ export const InnerWrapper = styled.div`
     height: 100%;
 `;
 
-export const FormWrapper = styled.div`
-    width: 50%;
-    margin: 30px;
-    border: 1px solid;
-    border: 0;
-    padding: 30px;
+export const ButtonsWrapper = styled.div`
+	width: 360px;
+	margin: 20px 0 40px 0;
+	display: flex;
+	justify-content: space-between;
+`
+
+export const DetailsWrapper = styled.div`
+    width: 100%;
+    margin: 40px 60px 60px 60px;
+
+    display: flex;
+    flex-direction: column;
+`
+
+export const DetailsRow = styled.div`
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+`
+
+export const StyledStrong = styled(Strong)`
+    width: 200px;
+    margin-right: 20px;
+    text-align: right;
+`
+
+export const Link = styled(StyledLink)`
+ 	margin-right: 20px;
 `

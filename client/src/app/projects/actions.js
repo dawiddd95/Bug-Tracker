@@ -1,7 +1,5 @@
 import types from './types';
 
-// becouse it will be reused in ticket in select to assign ticket to project
-
 const addFetchedProjects = item => ({
    type: types.FETCH_PROJECTS, item
 })
