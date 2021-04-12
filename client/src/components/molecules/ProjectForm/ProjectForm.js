@@ -1,63 +1,27 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import axios from 'axios';
+import React from 'react';
+import PropTypes from 'prop-types';
 import { Redirect } from 'react-router';
 import { Formik } from 'formik';
 import { theme } from 'theme/mainTheme';
 import { routes } from 'routes/index';
-import { projectsApi } from 'utils/api';
 import { Input } from 'components/atoms/Input/Input';
 import { Spinner } from 'components/atoms/Spinner/StyledSpinner';
-import actions from 'app/projects/actions';
 import * as Yup from 'yup';
 import Alert from '../Alert/Alert';
-import * as S from './StyledNewProjectForm';
+import * as S from './StyledProjectForm';
 
 
-const NewProjectForm = () => {
-    const dispatch = useDispatch();
-    const [isLoading, setIsLoading] = useState(false);
-    const [isSuccess, setSuccess] = useState(false);
-    const [message, setMessage] = useState('');
-    const [alert, setAlert] = useState(false);
-
-    const handleOnSubmit = async values => {
-        setAlert(false);
-        setIsLoading(true);
-
-        try {
-            const response = await axios.post(projectsApi, values);
-            const {data} = response
-            
-            if(!data) setAlert(true)
-            else {
-                dispatch(actions.addProject(data.project))
-                setSuccess(true)
-            }
-            
-            setIsLoading(false);
-            setSuccess(data.success);
-            setMessage(data.msg);
-        } catch (error) {
-            setAlert(true);
-            setSuccess(false);
-            setIsLoading(false);
-
-            if(error.response.status === 400) setMessage('400 (Invalid Token)')
-            if(error.response.status === 401) setMessage('401 (Unauthorized)')
-            if(error.response.status === 403) setMessage('403 (Forbidden) Not allowed to continue this operation')
-            if(error.response.status === 500) setMessage(`500 (Internal Server Error) ${error.response.data }`)
-        }
-    }
-
+const ProjectForm = ({loading, success, message, alert, edit, project, handleOnSubmit}) => {
     return (
         <>
             {alert && <Alert type="error" txt={message} />}
-            {isSuccess && <Redirect to={routes.projects} />}
+            {success && <Redirect to={routes.projects} />}
             <Formik
+                enableReinitialize
                 initialValues={{ 
-                    name: '',
-                    desc: ''
+                    id: edit ? project.id : '',
+                    name: edit ? project.name : '',
+                    desc: edit ? project.description : '',
                 }}
                 onSubmit={values => handleOnSubmit(values)}
                 validationSchema={Yup.object().shape({
@@ -86,9 +50,9 @@ const NewProjectForm = () => {
                         <S.StyledButton 
                             type="submit" 
                             backround="white"
-                            disabled={isLoading} 
+                            disabled={loading} 
                         >
-                            {isLoading && <Spinner />}
+                            {loading && <Spinner />}
                             Save
                         </S.StyledButton>
                         <S.StyledButton 
@@ -105,5 +69,24 @@ const NewProjectForm = () => {
         </>
     );
 }
+
+ProjectForm.propTypes = {
+    loading: PropTypes.bool.isRequired, 
+    success: PropTypes.bool.isRequired, 
+    message: PropTypes.string.isRequired, 
+    alert: PropTypes.bool.isRequired, 
+    edit: PropTypes.bool,
+    project: PropTypes.shape({
+        id: PropTypes.number,
+        name: PropTypes.string,
+        description: PropTypes.string
+    }),
+    handleOnSubmit: PropTypes.func.isRequired
+};
  
-export default NewProjectForm;
+ProjectForm.defaultProps = {
+    edit: false,
+    project: {id: '', name: '', desc: ''}
+};
+
+export default ProjectForm;

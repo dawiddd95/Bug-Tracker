@@ -1,32 +1,46 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState} from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { routes } from 'routes/index';
+import actions from 'app/tickets/actions';
 import MainPageTemplate from 'templates/MainPageTemplate';
 import { ticketsApi } from 'utils/api';
-import actions from 'app/tickets/actions'
 import { Header } from 'components/atoms/Header/Header';
 import { StyledLink } from 'components/atoms/Link/Link';
 import TicketForm from 'components/molecules/TicketForm/TicketForm';
-import * as S from './StyledNewTicketPage';
+import * as S from './StyledEditTicketPage';
 
-const NewTicketPage = ({match}) => {
+const EditTicketPage = ({match}) => {
     const dispatch = useDispatch();
     const [isLoading, setIsLoading] = useState(false);
     const [redirect, setRedirect] = useState(false);
+    const [ticketData, setTicketData] = useState({id: '', title: '', description: '', priority: 'low'})
+
+    useEffect( async () => {
+        const fetchData = async () => {
+            const response = await axios.get(`${ticketsApi}/${parseInt(match.params.ticketId,10)}`, {withCredentials: true})
+            const { ticket } = response.data;
+
+            setTicketData(ticket);
+        }
+        fetchData()
+    }, [])
 
     const handleOnSubmit = async values => {
         setIsLoading(true);
 
-        const response = await axios.post(ticketsApi, values);
+        console.log(`${ticketsApi}/${ticketData.id}/edit`)
+        const response = await axios.patch(`${ticketsApi}/${ticketData.id}/edit`, values);
         const {data} = response
+
         
-        if(data) dispatch(actions.addTicket(data.ticket))
+        if(data) dispatch(actions.editTicket(data.ticket))
         
         setIsLoading(false);
         setRedirect(true);
     }
+
 
     return (
         <MainPageTemplate>
@@ -35,17 +49,22 @@ const NewTicketPage = ({match}) => {
                     <StyledLink to={routes.dashboard}>Home</StyledLink>
                     <S.StyledSpan>/</S.StyledSpan>
                     <StyledLink to={routes.projects}>Projects</StyledLink>
-                    <S.StyledSpan>/ New ticket</S.StyledSpan>
+                    <S.StyledSpan>/</S.StyledSpan>
+                    <StyledLink to={`/user/projects/${parseInt(match.params.id,10)}`}>project {parseInt(match.params.id,10)}</StyledLink>
+                    <S.StyledSpan>/ ticket {match.params.ticketId}</S.StyledSpan>
+                    <S.StyledSpan>/ Edit</S.StyledSpan>
                 </S.Breadcrumb>
                 <S.InnerWrapper>
                     <Header>
-                        New Ticket
+                        Edit Ticket
                     </Header>
                     <S.FormWrapper>
                         <TicketForm 
                             loading={isLoading}
                             projectId={match.params.id} 
                             redirect={redirect}
+                            edit
+                            ticket={ticketData}
                             handleOnSubmit={handleOnSubmit}
                         />
                     </S.FormWrapper>
@@ -55,8 +74,8 @@ const NewTicketPage = ({match}) => {
     );
 }
 
-NewTicketPage.propTypes = {
+EditTicketPage.propTypes = {
     match: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
 };
 
-export default NewTicketPage;
+export default EditTicketPage;

@@ -8,6 +8,7 @@ import binIcon from 'assets/icons/bin.svg';
 import newIcon from 'assets/icons/new.svg';
 import editIcon from 'assets/icons/edit.svg';
 import MainPageTemplate from 'templates/MainPageTemplate';
+import { ticketsColumns } from 'utils/columns';
 import TableAntd from 'components/molecules/Table/Table';
 import { Header } from 'components/atoms/Header/Header';
 import { StyledLink } from 'components/atoms/Link/Link';
@@ -18,44 +19,6 @@ import Alert from 'components/molecules/Alert/Alert';
 import * as S from './StyledDetailsProjectPage';
 
 
-/* eslint-disable */
-const columns = [
-    {
-        title: 'Id', 
-        dataIndex: 'id', 
-        key: 'id'
-    },
-    {
-        title: 'Title', 
-        dataIndex: 'title', 
-        key: 'title'
-    },
-    {
-        title: 'Description', 
-        dataIndex: 'description', 
-        key: 'description',
-    },
-    {
-        title: 'Status', 
-        dataIndex: 'status', 
-        key: 'status',
-    },
-    {
-        title: 'Priority', 
-        dataIndex: 'priority', 
-        key: 'priority'
-    },
-    { 
-        title: 'Action', 
-        key: 'action',
-        render: ({id}) => 
-        <>
-            <S.Link color to={`/user/projects/${id}`}>View</S.Link>
-            <S.Link color to={`/user/projects/${id}/edit`}>Edit</S.Link>
-        </>
-    },
-];
-/* eslint-enable */
 
 const DetailsProjectPage = ({match}) => {
     const [projectData, setProjectData] = useState({id: '', name: '', desc: ''});
@@ -136,7 +99,7 @@ const DetailsProjectPage = ({match}) => {
                     </Header>
                     <TableAntd 
                         data={ticketData} 
-                        columns={columns}
+                        columns={ticketsColumns}
                         isLoading={isLoading}    
                     />
                 </S.InnerWrapper>

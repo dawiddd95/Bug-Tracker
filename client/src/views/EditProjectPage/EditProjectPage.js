@@ -1,15 +1,22 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { routes } from 'routes/index';
 import { projectsApi } from 'utils/api';
+import actions from 'app/projects/actions';
 import MainPageTemplate from 'templates/MainPageTemplate';
 import { Header } from 'components/atoms/Header/Header';
 import { StyledLink } from 'components/atoms/Link/Link';
-import EditProjectForm from 'components/molecules/EditProjectForm/EditProjectForm';
+import ProjectForm from 'components/molecules/ProjectForm/ProjectForm';
 import * as S from './StyledEditProjectPage';
 
 const EditProjectPage = ({match}) => {
+    const dispatch = useDispatch();
+    const [isLoading, setIsLoading] = useState(false);
+    const [isSuccess, setSuccess] = useState(false);
+    const [message, setMessage] = useState('');
+    const [alert, setAlert] = useState(false);
     const [data, setData] = useState({id: '', name: '', desc: ''});
 
     useEffect(() => {
@@ -21,6 +28,34 @@ const EditProjectPage = ({match}) => {
         }
         fetchData()
      }, [])
+
+
+    const handleOnSubmit = async values => {
+        setAlert(false);
+        setIsLoading(true);
+
+        try {
+            const response = await axios.patch(`${projectsApi}/${data.id}/edit`, values)
+            const {project, success, msg} = response.data
+            
+            dispatch(actions.editProject(project))
+            setSuccess(true)
+            
+            
+            setIsLoading(false);
+            setSuccess(success);
+            setMessage(msg);
+        } catch (error) {
+            setAlert(true);
+            setSuccess(false);
+            setIsLoading(false);
+
+            if(error.response.status === 400) setMessage('400 (Invalid Token)')
+            if(error.response.status === 401) setMessage('401 (Unauthorized)')
+            if(error.response.status === 403) setMessage('403 (Forbidden) Not allowed to continue this operation')
+            if(error.response.status === 500) setMessage(`500 (Internal Server Error) ${error.response.data }`)
+        }
+     }
 
     return (
         <MainPageTemplate>
@@ -38,7 +73,15 @@ const EditProjectPage = ({match}) => {
                         Edit Project
                     </Header>
                     <S.FormWrapper>
-                       <EditProjectForm edit project={data} />
+                       <ProjectForm 
+                            loading={isLoading}
+                            success={isSuccess}
+                            message={message}
+                            alert={alert}
+                            edit
+                            project={data}
+                            handleOnSubmit={handleOnSubmit}
+                        />
                     </S.FormWrapper>
                 </S.InnerWrapper>
             </S.Wrapper>

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Span } from 'components/atoms/Span/Span';
 import { Header } from 'components/atoms/Header/Header';
-import { StyledLink } from 'components/atoms/Link/Link';
 
 export const Wrapper = styled.div`
 	width: 100%;
@@ -46,8 +45,4 @@ export const SearchWrapper = styled.div`
 
 export const StyledHeader = styled(Header)`
  	margin-bottom: 30px;
-`
-
-export const Link = styled(StyledLink)`
- 	margin-right: 20px;
 `

@@ -12,6 +12,7 @@ export const routes = {
 	editProject: '/user/projects/:id/edit',
 	ticket: '/user/projects/:id/tickets/:id',
 	newTicket: '/user/projects/:id/tickets/new',
+	editTicket: '/user/projects/:id/tickets/:ticketId/edit',
 	profile: '/user/:id/profile',
 	users: '/user/admin/users',
 	user : '/user/admin/users/:id',

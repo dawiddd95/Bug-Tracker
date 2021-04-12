@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllProjects } from 'app/projects/operations';
 import { routes } from 'routes/index';
 import { theme } from 'theme/mainTheme';
+import { projectsColumns } from 'utils/columns';
 import MainPageTemplate from 'templates/MainPageTemplate';
 import newIcon from 'assets/icons/new.svg';
 import binIcon from 'assets/icons/bin.svg';
@@ -14,36 +15,6 @@ import { StyledLink } from 'components/atoms/Link/Link';
 import { Button } from 'components/atoms/Button/Button';
 import { ButtonIcon } from 'components/atoms/ButtonIcon/ButtonIcon';
 import * as S from './StyledProjectsPage';
-
-
-/* eslint-disable */
-const columns = [
-    {
-        title: 'Id', 
-        dataIndex: 'id', 
-        key: 'id'
-    },
-    {
-        title: 'Name', 
-        dataIndex: 'name', 
-        key: 'name'
-    },
-    {
-        title: 'Description', 
-        dataIndex: 'description', 
-        key: 'description',
-    },
-    { 
-        title: 'Action', 
-        key: 'action',
-        render: ({id}) => 
-        <>
-            <S.Link color to={`/user/projects/${id}`}>View</S.Link>
-            <S.Link color to={`/user/projects/${id}/edit`}>Edit</S.Link>
-        </>
-    },
-];
-/* eslint-enable */
 
 
 const ProjectsPage = () => {
@@ -97,7 +68,7 @@ const ProjectsPage = () => {
                     </S.SearchWrapper>
                     <TableAntd 
                         data={isFilter ? filterProjects : projects} 
-                        columns={columns}
+                        columns={projectsColumns}
                         isLoading={isLoading}    
                     />
                 </S.InnerWrapper>
