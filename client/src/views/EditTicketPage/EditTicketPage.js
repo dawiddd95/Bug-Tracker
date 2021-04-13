@@ -30,7 +30,6 @@ const EditTicketPage = ({match}) => {
     const handleOnSubmit = async values => {
         setIsLoading(true);
 
-        console.log(`${ticketsApi}/${ticketData.id}/edit`)
         const response = await axios.patch(`${ticketsApi}/${ticketData.id}/edit`, values);
         const {data} = response
 

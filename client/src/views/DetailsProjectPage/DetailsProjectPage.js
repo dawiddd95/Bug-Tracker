@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router';
 import { theme } from 'theme/mainTheme';
 import { routes } from 'routes/index';
+import actions from 'app/projects/actions';
 import { projectsApi } from 'utils/api';
 import binIcon from 'assets/icons/bin.svg';
 import newIcon from 'assets/icons/new.svg';
@@ -16,40 +19,66 @@ import { Span } from 'components/atoms/Span/Span';
 import { Button } from 'components/atoms/Button/Button';
 import { ButtonIcon } from 'components/atoms/ButtonIcon/ButtonIcon';
 import Alert from 'components/molecules/Alert/Alert';
+import Modal from 'components/molecules/Modal/Modal';
 import * as S from './StyledDetailsProjectPage';
 
-
-
 const DetailsProjectPage = ({match}) => {
-    const [projectData, setProjectData] = useState({id: '', name: '', desc: ''});
-    const [ticketData, setTicketData] = useState([{id: '', title: '', description: '', status: '', priority: ''}]);
-    const [message, setMessage] = useState(''); 
-    const [isLoading, setIsLoading] = useState(false);
-
-    // const handleOnClick = () => {
-
-    // }
+    const dispatch = useDispatch()
+    const [projectData, setProjectData] = useState({id: '', name: '', desc: ''})
+    const [ticketData, setTicketData] = useState([{id: '', title: '', description: '', status: '', priority: ''}])
+    const [message, setMessage] = useState('')
+    const [isLoading, setIsLoading] = useState(false)
+    const [isSuccess, setSuccess] = useState(false)
+    const [modalVisible, setModalVisibility] = useState(false)
 
     useEffect( async () => {
         try {
             const response = await axios.get(`${projectsApi}/${parseInt(match.params.id,10)}`, {withCredentials: true})
-            const { project } = response.data;
+            const { project } = response.data
             
             setProjectData(project)
-            setTicketData(project.tickets);
-            setIsLoading(false);
+            setTicketData(project.tickets)
+            setIsLoading(false)
         } catch (error) {
-            setIsLoading(false);
+            setIsLoading(false)
 
             if(error.response.status === 400) setMessage('400 (Invalid Token)')
             if(error.response.status === 401) setMessage('401 (Unauthorized)')
             if(error.response.status === 403) setMessage('403 (Forbidden) Not allowed to continue this operation')
             if(error.response.status === 500) setMessage(`500 (Internal Server Error) ${error.response.data }`)
         }
-     }, [])
+    }, [])
+
+    const showModal = () => {
+        setModalVisibility(true)
+    }
+
+    const handleCancel = () => {
+        setModalVisibility(false)
+    }
+    
+    const handleOk = async () => {  
+        const id = parseInt(match.params.id,10)
+        const response = await axios.delete(`${projectsApi}/${id}`, {withCredentials: true})
+        const { success } = response.data
+
+        if(success) {
+            dispatch(actions.deleteProject([id]))
+            setSuccess(success)
+            setModalVisibility(false)
+        }
+    }
 
     return (
         <MainPageTemplate>
+            {isSuccess && <Redirect to={routes.projects}/> }
+            <Modal 
+                title='Delete project'
+                txt='Are you sure to delete project?'
+                visible={modalVisible}
+                handleOk={handleOk}
+                handleCancel={handleCancel}
+            />
             <S.Wrapper>
                 <S.Breadcrumb>
                     <StyledLink to={routes.dashboard}>Home</StyledLink>
@@ -67,7 +96,7 @@ const DetailsProjectPage = ({match}) => {
                             <ButtonIcon src={editIcon} />
                             Edit project
                         </StyledLink>
-                        <Button fancy background={theme.background.white} >
+                        <Button fancy background={theme.background.white} onClick={showModal}>
                             <ButtonIcon src={binIcon} />
                             Delete
                         </Button>
