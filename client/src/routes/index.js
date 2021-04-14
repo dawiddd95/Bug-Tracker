@@ -10,7 +10,7 @@ export const routes = {
 	project: '/user/projects/:id',
 	newProject: '/user/projects/new',
 	editProject: '/user/projects/:id/edit',
-	ticket: '/user/projects/:id/tickets/:id',
+	ticket: '/user/projects/:id/tickets/:ticketId',
 	newTicket: '/user/projects/:id/tickets/new',
 	editTicket: '/user/projects/:id/tickets/:ticketId/edit',
 	profile: '/user/:id/profile',

@@ -15,7 +15,7 @@ const ProjectForm = ({loading, success, message, alert, edit, project, handleOnS
     return (
         <>
             {alert && <Alert type="error" txt={message} />}
-            {success && <Redirect to={routes.projects} />}
+            {success && <Redirect to={edit ? `${routes.projects}/${project.id}}` : routes.projects} />}
             <Formik
                 enableReinitialize
                 initialValues={{ 

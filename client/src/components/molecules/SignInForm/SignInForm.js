@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 import { Redirect } from 'react-router';
 import { theme } from 'theme/mainTheme';
 import { routes } from 'routes/index';
+import actions from 'app/users/actions';
 import { Input } from 'components/atoms/Input/Input';
 import { Span } from 'components/atoms/Span/Span';
 import { StyledLink } from 'components/atoms/Link/Link';
@@ -14,9 +16,8 @@ import { signinApi } from 'utils/api';
 import Alert from '../Alert/Alert';
 import * as S from './StyledSignInForm';
 
-
-
 const SignInForm = () => {
+    const dispatch = useDispatch()
     const [signInAs, setSignInAs] = useState('Admin');
     const [demoUserEmail, setDemoUserEmail] = useState('dawlyc1995@gmail.com');
     const [demoUserPassword, setDemoUserPassword] = useState('ZAQ!2wsx');
@@ -39,6 +40,8 @@ const SignInForm = () => {
             const response = await axios.post(signinApi, values)
             const {data} = response
             
+            dispatch(actions.loggedUser(data.user))
+
             if(data.success) sessionStorage.setItem('session', true)
             
             setIsLoading(false);

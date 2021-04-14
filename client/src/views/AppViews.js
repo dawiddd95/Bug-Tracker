@@ -8,7 +8,9 @@ import ErrorPage from 'views/ErrorPage/ErrorPage';
 import NewProjectPage from 'views/NewProjectPage/NewProjectPage';
 import EditProjectPage from 'views/EditProjectPage/EditProjectPage';
 import NewTicketPage from 'views/NewTicketPage/NewTicketPage';
-import EditTicketPage from './EditTicketPage/EditTicketPage';
+import EditTicketPage from 'views/EditTicketPage/EditTicketPage';
+import DetailsTicketPage from 'views/DetailsTicketPage/DetailsTicketPage';
+import ProfilePage from 'views/ProfilePage/ProfilePage';
 
 
 const AppViews = () => {
@@ -21,6 +23,8 @@ const AppViews = () => {
             <Route exact path={routes.editProject} component={EditProjectPage} />
             <Route exact path={routes.newTicket} component={NewTicketPage} />
             <Route exact path={routes.editTicket} component={EditTicketPage} />
+            <Route exact path={routes.ticket} component={DetailsTicketPage} />
+            <Route exact path={routes.profile} component={ProfilePage} />
             <Route component={ErrorPage} />
         </Switch>
     )
