@@ -5,8 +5,6 @@ import types from './types';
 const INITIAL_STATE = {
    users: [],
    loggedUser: {},
-   isFilter: false,
-   filterUsers: [],
 }
 
 /* eslint-disable */
@@ -38,17 +36,6 @@ const usersReducer = (state = INITIAL_STATE, action) => {
             draftState.users = draftState.users.filter(user => 
                !action.item.includes(user.id))
          })
-
-      case types.IS_FILTER:
-         return produce(state, draftState => {
-            draftState.isFilter = action.item
-         })
-
-      case types.FILTER_USERS:
-         return produce(state, draftState => {
-            draftState.filterUsers = action.item
-         })
-
 
       default:
          return state;

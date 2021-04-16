@@ -42,7 +42,10 @@ const SignInForm = () => {
             
             dispatch(actions.loggedUser(data.user))
 
-            if(data.success) sessionStorage.setItem('session', true)
+            if(data.success) {
+                sessionStorage.setItem('session', true)
+                sessionStorage.setItem('type', data.user.type)
+            }
             
             setIsLoading(false);
             setSuccess(data.success);

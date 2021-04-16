@@ -20,21 +20,11 @@ const deleteUser = item => ({
    type: types.DELETE_USER, item
 })
 
-const isFilterUser = item => ({
-   type: types.IS_FILTER, item
-})
-
-const filterUsers = item => ({
-   type: types.FILTER_USERS, item
-})
-
 
 export default {
    addFetchedUsers,
    loggedUser,
    addUser,
    editUser,
-   deleteUser,
-   isFilterUser,
-   filterUsers
+   deleteUser
 }

@@ -3,7 +3,7 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.bulkUpdate('Users', {
-      projectId: 2,
+      projectId: 302,
     }, {
       id: 306,
     });

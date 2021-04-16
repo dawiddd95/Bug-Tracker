@@ -4,5 +4,6 @@ export const projectsApi = '/api/user/projects';
 export const projectsSearchApi = '/api/user/projects/search';
 export const ticketsApi = '/api/user/tickets';
 export const ticketsSearchApi = '/api/user/tickets/search';
-export const userApi = '/api/users';
+export const usersApi = '/api/users';
 export const profileApi = '/api/users/profile';
+export const adminApi = '/api/admin/user';

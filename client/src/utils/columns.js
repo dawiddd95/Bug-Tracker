@@ -64,4 +64,5 @@ export const projectsColumns = [
         </>
     },
 ];
+
 /* eslint-enable */

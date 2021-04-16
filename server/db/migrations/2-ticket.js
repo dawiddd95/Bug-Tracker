@@ -16,12 +16,6 @@ module.exports = {
         allowNull: false,
         type: Sequelize.TEXT
       },
-      status: {
-        allowNull: false,
-        defaultValue: 'new',
-        type: Sequelize.ENUM,
-        values: ['new', 'ongoing', 'done', 'blocked', 'rejected'],
-      },
       priority: {
         allowNull: false,
         defaultValue: 'low',

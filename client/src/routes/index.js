@@ -14,7 +14,8 @@ export const routes = {
 	newTicket: '/user/projects/:id/tickets/new',
 	editTicket: '/user/projects/:id/tickets/:ticketId/edit',
 	profile: '/user/:id/profile',
-	users: '/user/admin/users',
-	user : '/user/admin/users/:id',
+	users: '/admin/users',
+	editUser: '/admin/users/:id/change-password',
+	newUser: '/admin/user/new',
 	settings: '/user/settings',
 };
