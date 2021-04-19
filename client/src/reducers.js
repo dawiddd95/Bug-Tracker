@@ -2,12 +2,14 @@ import { combineReducers } from 'redux';
 import projects from './app/projects';
 import tickets from './app/tickets';
 import users from './app/users';
+import comments from './app/comments';
 
 /* eslint-disable */
 const appReducer = combineReducers({
    projects,
    tickets,
-   users
+   users,
+   comments
 })
 
 // reset redux store

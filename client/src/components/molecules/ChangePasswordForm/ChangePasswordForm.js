@@ -22,14 +22,10 @@ const ChangePasswordForm = ({id}) => {
     const handleOnSubmit = async values => {
         setAlert(false);
         setIsLoading(true);
-
-        console.log(values)
         
         const response = await axios.post(adminApi, values)
         const {data} = response
         
-
-
         if(data.success) {
             setMessage('Change password successfully!');
             setTimeout(() => setRedirect(true), 5000)

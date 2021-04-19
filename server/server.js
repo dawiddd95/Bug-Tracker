@@ -20,7 +20,8 @@ import deleteProjectRoute from './routes/deleteProject'
 import editUserRoute from './routes/editUser'
 import deleteUserRoute from './routes/deleteUser'
 import editPasswordRoute from './routes/editUser'
-
+import newCommentRoute from './routes/newComment'
+import deleteTicketRoute from './routes/deleteTicket'
 
 dotenv.config();   
 
@@ -46,5 +47,8 @@ app.use(listUsersRoute)
 app.use(editUserRoute)
 app.use(deleteUserRoute)
 app.use(editPasswordRoute)
+app.use(newCommentRoute)
+app.use(deleteTicketRoute)
+
 
 app.listen(5000, () => console.log('Now browse to localhost:5000'))

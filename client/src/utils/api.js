@@ -7,3 +7,4 @@ export const ticketsSearchApi = '/api/user/tickets/search';
 export const usersApi = '/api/users';
 export const profileApi = '/api/users/profile';
 export const adminApi = '/api/admin/user';
+export const commentsApi = '/api/user/comments';

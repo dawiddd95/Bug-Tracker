@@ -1,53 +1,103 @@
-// import React, { useState } from 'react';
-// import { Formik } from 'formik';
-// import { Input } from 'components/atoms/Input/Input';
-// import * as Yup from 'yup';
-// import Alert from '../Alert/Alert';
-// import * as S from './StyledForgotPasswordForm';
+import React, { useState } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import { Formik, Field } from 'formik';
+import { theme } from 'theme/mainTheme';
+import { commentsApi } from 'utils/api';
+import actions from 'app/comments/actions';
+import * as Yup from 'yup';
+import Spinner from 'components/atoms/Spinner/Spinner';
+import Alert from '../Alert/Alert';
+import * as S from './StyledCommentForm';
 
-// // TUTAJ ADRAZU NIECH DODAJE DO REDUXA, BO WSZYSTKIE ZMIANY PO DODANIU BĘDZIE BRAŁO Z REDUXA, BO STRONA SIE NIE PRZELADUJE PO DODANIU
-// const CommentForm = ({}) => {
-//     const [alert, setAlert] = useState(false);
 
-//     return (
-//         <>
-//             {alert && <Alert type="error" txt="We are temporarily unable to perform this operation" />}
-//             <Formik
-//                 initialValues={{ 
-//                     id: '',
-//                     content: '',
-//                     ticketId: '',
-//                     authorId: '',
-//                 }}
-//                 onSubmit={() => {
-//                     setAlert(true);
-//                 }}
-//                 validationSchema={Yup.object().shape({
-//                     email: Yup
-//                        .string()
-//                        .email()
-//                        .required('Email is required'),
-//                 })}
-//             >
-//             {({ handleSubmit }) => (
-//                 <S.StyledForm onSubmit={handleSubmit}>
-//                     <Input
-//                         type="text"
-//                         name="email"
-//                         placeholder="Email"
-//                     />
-//                     <S.FormError name="email" component="span" />
-//                     <S.StyledButton 
-//                         type="submit" 
-//                         backround="white"
-//                     >
-//                         Send password reset email
-//                     </S.StyledButton>
-//                 </S.StyledForm>
-//             )}
-//             </Formik>
-//         </>
-//     );
-// }
+const CommentForm = ({ticketId}) => {
+    const dispatch = useDispatch()
+    const {loggedUser} = useSelector(state => state.users)
+    const [isLoading, setIsLoading] = useState(false)
+    const [isSuccess, setSuccess] = useState(false)
+    const [message, setMessage] = useState('')
+    const [alert, setAlert] = useState(false)
+
+
+    const handleOnSubmit = async values => {
+        setAlert(false);
+        setIsLoading(true);
+        
+        const response = await axios.post(commentsApi, values);
+        const {data} = response;
+
+        if(data) {
+            dispatch(actions.addComment(data.comment))
+            setSuccess(true);
+            setMessage('Comment addded!');
+        } else {
+            setSuccess(false)
+            setMessage('We are temporarily unable to perform this operation')
+        }
+        
+        setIsLoading(false);
+        setAlert(true);
+    }
+
+    return (
+        <>
+            {alert && <Alert type={isSuccess} txt={message} />}
+            <Formik
+                enableReinitialize
+                initialValues={{ 
+                    content: '',
+                    ticketId,
+                    authorId: loggedUser.id,
+                }}
+                onSubmit={values => {
+                    console.log(values)
+                    handleOnSubmit(values)
+                }}
+                validationSchema={Yup.object().shape({
+                    content: Yup
+                       .string()
+                       .required('Content is required'),
+                })}
+            >
+            {({ handleSubmit }) => (
+                <S.StyledForm onSubmit={handleSubmit}>
+                    <Field
+                        as='textarea' 
+                        type="text"
+                        name="content"
+                        placeholder="Write comment..."
+                        style={{    
+                            width: '100%',
+                            minHeight: '100px',
+                            margin: '0 0 20px 0',
+                            padding: '10px 15px',
+                            outline: '0',
+                            borderRadius: '5px',
+                            fontWeight: '200',
+                            color: theme.background.grayDark,
+                            transition: '0.3s',
+                            border: '1px solid #d9d9d9'
+                        }}
+                    />
+                    <S.FormError name="content" component="span" />
+                    <S.StyledButton 
+                        type="submit" 
+                        backround="white"
+                    >
+                        {isLoading && <Spinner />}
+                        Comment
+                    </S.StyledButton>
+                </S.StyledForm>
+            )}
+            </Formik>
+        </>
+    );
+}
+
+CommentForm.propTypes = {
+    ticketId: PropTypes.number.isRequired
+}
  
-// export default ForgotPasswordForm;
+export default CommentForm;

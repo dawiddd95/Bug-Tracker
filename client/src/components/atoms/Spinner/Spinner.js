@@ -3,7 +3,7 @@ import * as S from './StyledSpinner';
 
 const Spinner = () => {
     return (  
-        <S.Spinner></S.Spinner>
+        <S.Spinner />
     );
 }
  
