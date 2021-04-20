@@ -15,5 +15,5 @@ export const routes = {
 	users: '/admin/users',
 	editUser: '/admin/users/:id/change-password',
 	newUser: '/admin/user/new',
-	settings: '/user/settings',
+	themes: '/user/themes',
 };

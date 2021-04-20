@@ -1,11 +1,5 @@
 import React, { useState, useContext } from 'react';
-
 import { ThemeContext } from 'context';
-import { defaultTheme, cyanTheme, geekBlueTheme, goldTheme, limeTheme, redTheme, volcanoTheme, magentaTheme } from 'theme/mainTheme';
-
-
-
-
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import { Formik } from 'formik';
@@ -24,12 +18,7 @@ import * as S from './StyledSignInForm';
 
 const SignInForm = () => {
     const dispatch = useDispatch()
-
-    const {theme, changeTheme} = useContext(ThemeContext)
-
-
-
-
+    const { theme } = useContext(ThemeContext)
     const [signInAs, setSignInAs] = useState('Admin');
     const [demoUserEmail, setDemoUserEmail] = useState('dawlyc1995@gmail.com');
     const [demoUserPassword, setDemoUserPassword] = useState('ZAQ!2wsx');
@@ -98,18 +87,6 @@ const SignInForm = () => {
             >
             {({ handleSubmit }) => (
                 <S.StyledForm onSubmit={handleSubmit}>
-
-
-                <button type="button" onClick={() => changeTheme(defaultTheme)}>default theme</button>
-				<button type="button" onClick={() => changeTheme(cyanTheme)}>cyan theme</button>
-				<button type="button" onClick={() => changeTheme(geekBlueTheme)}>geek theme</button>
-				<button type="button" onClick={() => changeTheme(limeTheme)}>lime theme</button>
-				<button type="button" onClick={() => changeTheme(redTheme)}>red theme</button>
-				<button type="button" onClick={() => changeTheme(volcanoTheme)}>volcano theme</button>
-				<button type="button" onClick={() => changeTheme(magentaTheme)}>magenta theme</button>
-				<button type="button" onClick={() => changeTheme(goldTheme)}>gold theme</button>
-
-
                     <Input
                         type="text"
                         name="email"

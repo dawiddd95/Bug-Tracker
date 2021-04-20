@@ -19,8 +19,8 @@ export const Button = styled.button`
 	transition: 0.3s;
 
 	:hover {
-		background-color: ${({ theme }) => lighten('0.1', theme.primary)};
-		color: ${({ theme }) => theme.colors.white};
+		background-color: ${({ background, theme }) => background ? lighten('0.1', background) : lighten('0.1', theme.primary)};
+		color: ${({ color, theme }) => color || theme.colors.white};
 		transition: 0.3s;
 	}
 

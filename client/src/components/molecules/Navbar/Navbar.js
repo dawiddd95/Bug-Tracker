@@ -5,7 +5,7 @@ import dashboardIcon from 'assets/icons/dashboard.svg';
 import projectIcon from 'assets/icons/project.svg';
 import userIcon from 'assets/icons/user.svg';
 import profileIcon from 'assets/icons/profile.svg';
-import settingsIcon from 'assets/icons/settings.svg';
+import themeIcon from 'assets/icons/theme.svg';
 import * as S from './StyledNavbar';
 
 
@@ -41,9 +41,9 @@ const Navbar = () => {
                     <S.StyledButtonIcon src={profileIcon} />
                     Profile
                 </S.NavbarStyledLink>
-                <S.NavbarStyledLink to={routes.settings}>
-                    <S.StyledButtonIcon src={settingsIcon} />
-                    Settings
+                <S.NavbarStyledLink to={routes.themes}>
+                    <S.StyledButtonIcon src={themeIcon} />
+                    Themes
                 </S.NavbarStyledLink>
             </S.LinksWrapper>
         </S.Wrapper>

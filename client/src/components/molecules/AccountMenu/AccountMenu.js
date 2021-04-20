@@ -5,7 +5,7 @@ import { defaultTheme } from 'theme/mainTheme';
 import { Span } from 'components/atoms/Span/Span';
 import { ButtonIcon } from 'components/atoms/ButtonIcon/ButtonIcon';
 import profileIcon from 'assets/icons/profile.svg';
-import settingsIcon from 'assets/icons/settings.svg';
+import themeIcon from 'assets/icons/theme.svg';
 import logoutIcon from 'assets/icons/logout.svg';
 import * as S from './StyledAccountMenu';
 
@@ -40,9 +40,9 @@ const AccountMenu = () => {
                 {
                     isVisible && (
                         <S.DropdownWrapper onMouseOver={onMouseOver}>
-                            <S.DropdownStyledLink to={routes.settings}>
-                                <ButtonIcon src={settingsIcon} />
-                                Settings
+                            <S.DropdownStyledLink to={routes.themes}>
+                                <ButtonIcon src={themeIcon} />
+                                Themes
                             </S.DropdownStyledLink>
                             <S.DropdownStyledLink to={routes.profile}>
                                 <ButtonIcon src={profileIcon} />

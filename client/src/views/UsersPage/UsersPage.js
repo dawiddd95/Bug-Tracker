@@ -78,7 +78,7 @@ const UsersPage = () => {
             /* eslint-disable */
             render: ({id}) => 
             <>
-                <S.Link color to={`${routes.users}/${id}/change-password`}>Change password</S.Link>
+                <S.Link color to={`${routes.users}/${id}/change-password`}>New password</S.Link>
                 <S.StyledButton 
                     background={theme.colors.transparent} 
                     color={theme.colors.red} 
