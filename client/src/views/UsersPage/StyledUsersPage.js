@@ -24,7 +24,7 @@ export const InnerWrapper = styled.div`
 	width: 95%;
 	margin: 16px auto;
 	padding: 24px;
-	background-color: ${({ theme }) => theme.background.white};
+	background-color: ${({ theme }) => theme.colors.white};
 	border-radius: 5px;
 	height: 100%;
 `;

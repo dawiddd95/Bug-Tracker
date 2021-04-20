@@ -65,16 +65,16 @@ export const Link = styled(StyledLink)`
     width: 120px;
     padding: 8px 0;
     border: 1px solid;
-    color: ${({ theme }) => theme.background.white};
-    background-color: ${({ theme }) => theme.background.primary};
+    color: ${({ theme }) => theme.colors.white};
+    background-color: ${({ theme }) => theme.primary};
     border-radius: 4px;
 
     display: flex;
     justify-content: center;
 
     :hover {
-		background-color: ${({ theme }) => lighten('0.1', theme.background.primary)};
-        color: ${({ theme }) => theme.background.white};
+		background-color: ${({ theme }) => lighten('0.1', theme.primary)};
+        color: ${({ theme }) => theme.colors.white};
 		transition: 0.3s;
 	}
 `

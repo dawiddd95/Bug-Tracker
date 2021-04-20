@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router';
-import { theme } from 'theme/mainTheme';
+import { ThemeContext } from 'context';
 import { routes } from 'routes/index';
 import actions from 'app/tickets/actions';
 import commentsActions from 'app/comments/actions';
@@ -23,6 +23,7 @@ import * as S from './StyledDetailsTicketPage';
 
 const DetailsTicketPage = ({match}) => {
     const dispatch = useDispatch()
+    const {theme} = useContext(ThemeContext)
     const [ticketData, setTicketData] = useState([{id: '', title: '', description: '', status: '', priority: ''}])
     const [isSuccess, setSuccess] = useState(false)
     const [modalVisible, setModalVisibility] = useState(false)
@@ -84,12 +85,15 @@ const DetailsTicketPage = ({match}) => {
                         <StyledLink 
                             to={`${routes.projects}/${parseInt(match.params.id,10)}/tickets/${match.params.ticketId}/edit`} 
                             button 
-                            background={theme.background.primary}
+                            background={theme.primary}
+                            color={theme.colors.white}
                         >
                             <ButtonIcon src={editIcon} />
                             Edit ticket
                         </StyledLink>
-                        <Button fancy background={theme.background.white} onClick={showModal}>
+                        <Button fancy 
+                        background={theme.colors.white} 
+                        onClick={showModal}>
                             <ButtonIcon src={binIcon} />
                             Delete
                         </Button>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Redirect } from 'react-router';
 import { routes } from 'routes/index';
-import { theme } from 'theme/mainTheme';
+import { defaultTheme } from 'theme/mainTheme';
 import { Span } from 'components/atoms/Span/Span';
 import { ButtonIcon } from 'components/atoms/ButtonIcon/ButtonIcon';
 import profileIcon from 'assets/icons/profile.svg';
@@ -49,7 +49,7 @@ const AccountMenu = () => {
                                 Profile
                             </S.DropdownStyledLink>
                             <S.StyledButton 
-                                color={theme.background.white}
+                                color={defaultTheme.colors.white}
                                 onClick={logout}
                             >
                                 <ButtonIcon src={logoutIcon} />

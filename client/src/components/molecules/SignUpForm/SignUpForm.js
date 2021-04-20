@@ -107,7 +107,6 @@ const SignUpForm = () => {
                     </Input>
                     <S.StyledButton 
                         type="submit" 
-                        backround="white"
                         disabled={isLoading}
                     >
                         {isLoading && <Spinner />}

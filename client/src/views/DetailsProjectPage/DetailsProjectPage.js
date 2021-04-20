@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { useDispatch } from 'react-redux';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router';
-import { theme } from 'theme/mainTheme';
+import { ThemeContext } from 'context';
 import { routes } from 'routes/index';
 import actions from 'app/projects/actions';
 import { projectsApi } from 'utils/api';
@@ -24,6 +24,7 @@ import * as S from './StyledDetailsProjectPage';
 
 const DetailsProjectPage = ({match}) => {
     const dispatch = useDispatch()
+    const {theme} = useContext(ThemeContext)
     const [projectData, setProjectData] = useState({id: '', name: '', desc: ''})
     const [ticketData, setTicketData] = useState([{id: '', title: '', description: '', status: '', priority: ''}])
     const [message, setMessage] = useState('')
@@ -91,19 +92,25 @@ const DetailsProjectPage = ({match}) => {
                         <StyledLink 
                             to={`/user/projects/${match.params.id}/edit`} 
                             button 
-                            background={theme.background.primary}
+                            background={theme.primary}
+                            color={theme.colors.white}
                         >
                             <ButtonIcon src={editIcon} />
                             Edit project
                         </StyledLink>
-                        <Button fancy background={theme.background.white} onClick={showModal}>
+                        <Button 
+                            fancy 
+                            background={theme.colors.white} 
+                            onClick={showModal}
+                        >
                             <ButtonIcon src={binIcon} />
                             Delete
                         </Button>
                         <StyledLink 
                             to={`/user/projects/${match.params.id}/tickets/new`}
                             button 
-                            background={theme.background.primary}
+                            background={theme.primary}
+                            color={theme.colors.white}
                         >
                             <ButtonIcon src={newIcon} />
                             New ticket

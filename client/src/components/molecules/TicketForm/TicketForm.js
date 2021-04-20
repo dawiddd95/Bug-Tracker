@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router';
 import { Formik } from 'formik';
-import { theme } from 'theme/mainTheme';
+import { ThemeContext } from 'context';
 import { Input } from 'components/atoms/Input/Input';
 import { Spinner } from 'components/atoms/Spinner/StyledSpinner';
 import * as Yup from 'yup';
@@ -10,6 +10,8 @@ import * as S from './StyledTicketForm';
 
 
 const TicketForm = ({loading, projectId, redirect, edit, ticket, handleOnSubmit}) => {
+    const {theme} = useContext(ThemeContext)
+
     return (
         <>
             {redirect && <Redirect to={`/user/projects/${parseInt(projectId, 10)}`} />}
@@ -64,7 +66,7 @@ const TicketForm = ({loading, projectId, redirect, edit, ticket, handleOnSubmit}
                         </S.StyledButton>
                         <S.StyledButton 
                             type="reset" 
-                            background={theme.background.white}
+                            background={theme.colors.white}
                             fancy
                         >
                             Reset {edit}

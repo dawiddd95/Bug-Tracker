@@ -19,7 +19,7 @@ export const StyledReactSelect = styled(ReactSelect)`
 
 export const FormError = styled(ErrorMessage)`
     margin: -10px auto 10px 0;
-    color: ${({ theme }) => theme.background.red};
+    color: ${({ theme }) => theme.colors.red};
     font-size: 12px;
 `
 

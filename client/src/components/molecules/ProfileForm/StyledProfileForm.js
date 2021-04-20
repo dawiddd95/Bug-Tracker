@@ -13,7 +13,7 @@ export const StyledForm = styled(Form)`
 
 export const FormError = styled(ErrorMessage)`
     margin: -10px auto 10px 0;
-    color: ${({ theme }) => theme.background.red};
+    color: ${({ theme }) => theme.colors.red};
     font-size: 12px;
 `
 
@@ -33,4 +33,9 @@ export const StyledButton = styled(Button)`
     padding: 0 20px;
     height: 40px;
     font-size: 14px;
+    background-color: ${({ background }) => background};
+
+    :hover {
+        background-color: ${({ background }) => background};
+    }
 `

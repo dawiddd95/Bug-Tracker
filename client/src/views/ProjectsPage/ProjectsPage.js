@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllProjects } from 'app/projects/operations';
 import { routes } from 'routes/index';
-import { theme } from 'theme/mainTheme';
+import { ThemeContext } from 'context';
 import { projectsColumns } from 'utils/columns';
 import MainPageTemplate from 'templates/MainPageTemplate';
 import newIcon from 'assets/icons/new.svg';
@@ -19,6 +19,7 @@ import * as S from './StyledProjectsPage';
 
 const ProjectsPage = () => {
     const dispatch = useDispatch();
+    const {theme} = useContext(ThemeContext)
     const {projects, isFilter, filterProjects} = useSelector(state => state.projects)
     const [isLoading, setIsLoading] = useState(false);
 
@@ -43,12 +44,15 @@ const ProjectsPage = () => {
                         <StyledLink 
                             to={routes.newProject} 
                             button 
-                            background={theme.background.primary}
+                            background={theme.primary}
+                            color={theme.colors.white}
                         >
                             <ButtonIcon src={newIcon} />
                             New
                         </StyledLink>
-                        <Button fancy background={theme.background.white}>
+                        <Button fancy 
+                            background={theme.colors.white}
+                        >
                             <ButtonIcon src={binIcon} />
                             Delete
                         </Button>
@@ -56,7 +60,10 @@ const ProjectsPage = () => {
                             <ButtonIcon src={exportIcon} />
                             Export to Excel
                         </Button>
-                        <Button fancy background={theme.background.white}>
+                        <Button 
+                            fancy 
+                            background={theme.colors.white}
+                        >
                             Audit
                         </Button>
                     </S.ButtonsWrapper>

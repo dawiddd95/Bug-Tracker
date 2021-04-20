@@ -13,7 +13,7 @@ export const InnerWrapper = styled.div`
     width: 100px;
     height: 65px;
     margin: 0 140px 0 0;
-    border-left: ${ ({theme}) => `1px dotted ${theme.background.border}`};
+    border-left: ${ ({theme}) => `1px dotted ${theme.border}`};
     
     display: flex;
     justify-content: center;
@@ -34,7 +34,7 @@ export const DropdownWrapper = styled.div`
 
 export const DropdownStyledLink = styled(StyledLink)`
     padding: 16px 12px;
-    border-bottom: ${ ({theme}) => `0.5px dotted ${theme.background.border}`};;
+    border-bottom: ${ ({theme}) => `0.5px dotted ${theme.border}`};;
 `
 
 export const StyledButton = styled(Button)`

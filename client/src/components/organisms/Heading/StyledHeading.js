@@ -5,8 +5,8 @@ export const Wrapper = styled.div`
   position: fixed;
   display: flex;
   justify-content: flex-end;
-  border-bottom: ${({ theme }) => `1px solid ${theme.background.border}`};
-  background-color: ${({ theme }) => theme.background.white};
+  border-bottom: ${({ theme }) => `1px solid ${theme.border}`};
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const InnerWrapper = styled.div`

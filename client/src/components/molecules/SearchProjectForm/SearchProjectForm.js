@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { Formik } from 'formik';
-import { theme } from 'theme/mainTheme';
+import { ThemeContext } from 'context';
 import { Input } from 'components/atoms/Input/Input';
 import { Spinner } from 'components/atoms/Spinner/StyledSpinner';
 import * as Yup from 'yup';
@@ -14,6 +14,7 @@ import * as S from './StyledSearchProjectForm';
 
 const SearchProjectForm = () => {
     const dispatch = useDispatch();
+    const {theme} = useContext(ThemeContext);
     const [isLoading, setIsLoading] = useState(false);
     const [isSuccess, setSuccess] = useState(false);
     const [message, setMessage] = useState('');
@@ -104,7 +105,7 @@ const SearchProjectForm = () => {
                         </S.StyledButton>
                         <S.StyledButton 
                             type="reset" 
-                            background={theme.background.white}
+                            background={theme.colors.white}
                             fancy
                             onClick={() => handleOnReset()}
                         >

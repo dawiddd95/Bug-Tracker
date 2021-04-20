@@ -5,21 +5,21 @@ import { lighten } from 'polished';
 export const StyledLink = styled(Link)`
 	font-size: 14px;
 	font-weight: ${({ fontWeight, theme }) => fontWeight || theme.fontWeight.weight400};
-	color: ${({ color, theme }) => color ? theme.background.primary : theme.background.grayDark};
+	color: ${({ color, theme }) => color ? theme.primary : theme.colors.grayDark};
 	text-decoration: none;
 	transition: 0.3s;
 
 	:hover {
 		transition: 0.3s;
-		color: ${({ theme }) => theme.background.primary};
+		color: ${({ theme }) => theme.primary};
 	}
 
-  	${({ button}) => button && css`
+  	${({ button }) => button && css`
 		height: 32px;
 		padding: 0 15px;
-		background-color: ${({ background, theme }) => background || theme.background.primary};
+		background-color: ${({ background, theme }) => background || theme.primary};
 		background-image: url(${({ icon }) => icon});
-		color: ${({ color, theme }) => color || theme.color.primary};
+		color: ${({ color, theme }) => color || theme.colors.white};
 		border: 0;
 		border-radius: 4px;
 		font-weight: ${({ theme }) => theme.fontWeight.weight500};
@@ -32,8 +32,8 @@ export const StyledLink = styled(Link)`
 		transition: 0.3s;
 
 		:hover {
-			background-color: ${({ background, theme }) => background ? lighten('0.1', background) : theme.background.primary};
-			color: ${({ color, theme }) => color || theme.color.primary};
+			background-color: ${({ theme }) => lighten('0.1', theme.primary)};
+			color: ${({ color, theme }) => color || theme.primary};
 			transition: 0.3s;
 		}
 	`}

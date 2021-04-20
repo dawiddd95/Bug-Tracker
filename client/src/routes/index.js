@@ -1,5 +1,3 @@
-// Now only basics
-// after maybe like this: /projects/:id/tickets/:id/comments
 export const routes = {
 	home: '/',
 	dashboard: '/user/dashboard',

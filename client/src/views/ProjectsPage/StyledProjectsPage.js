@@ -23,7 +23,7 @@ export const InnerWrapper = styled.div`
 	width: 95%;
 	margin: 16px auto;
 	padding: 24px;
-	background-color: ${({ theme }) => theme.background.white};
+	background-color: ${({ theme }) => theme.colors.white};
 	border-radius: 5px;
 	height: 100%;
 `;
@@ -36,9 +36,8 @@ export const ButtonsWrapper = styled.div`
 `
 
 export const SearchWrapper = styled.div`
-	border: 1px solid;
 	border-radius: 5px;
-	border-color: ${({ theme }) => theme.background.border};
+	border: ${({ theme }) => `1px solid ${theme.colors.border}`};
 	margin: 30px 0 0 0;
 	padding: 30px;
 `

@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Formik, Field } from 'formik';
-import { theme } from 'theme/mainTheme';
+import { ThemeContext } from 'context';
 import { commentsApi } from 'utils/api';
 import actions from 'app/comments/actions';
 import * as Yup from 'yup';
@@ -14,12 +14,12 @@ import * as S from './StyledCommentForm';
 
 const CommentForm = ({ticketId}) => {
     const dispatch = useDispatch()
+    const {theme} = useContext(ThemeContext)
     const {loggedUser} = useSelector(state => state.users)
     const [isLoading, setIsLoading] = useState(false)
     const [isSuccess, setSuccess] = useState(false)
     const [message, setMessage] = useState('')
     const [alert, setAlert] = useState(false)
-
 
     const handleOnSubmit = async values => {
         setAlert(false);
@@ -76,7 +76,7 @@ const CommentForm = ({ticketId}) => {
                             outline: '0',
                             borderRadius: '5px',
                             fontWeight: '200',
-                            color: theme.background.grayDark,
+                            color: theme.colors.grayDark,
                             transition: '0.3s',
                             border: '1px solid #d9d9d9'
                         }}

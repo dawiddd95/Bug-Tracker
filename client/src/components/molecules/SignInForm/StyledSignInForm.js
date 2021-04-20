@@ -36,12 +36,12 @@ export const InnerWrapper = styled.div`
 
 export const FormError = styled(ErrorMessage)`
     margin: -10px auto 10px 0;
-    color: ${({ theme }) => theme.background.red};
+    color: ${({ theme }) => theme.colors.red};
     font-size: 12px;
 `
 
 export const StyledSpan = styled(Span)`
-    color: ${({ theme }) => theme.background.primary};
+    color: ${({ theme }) => theme.primary};
 `
 
 export const SignInAsWrapper = styled.div`
@@ -81,11 +81,11 @@ export const StyledButton = styled(Button)`
     ${({ disabled }) =>
 		disabled &&
 		css`
-		color: ${({ theme }) => theme.background.white};
-		background-color: ${({ theme }) => theme.background.primary};
+		color: ${({ theme }) => theme.colors.white};
+		background-color: ${({ theme }) => theme.primary};
 		
 		:hover {
-			background-color: ${({ theme }) => theme.background.primary};
+			background-color: ${({ theme }) => theme.primary};
 			cursor: not-allowed;
 		}
 	`}

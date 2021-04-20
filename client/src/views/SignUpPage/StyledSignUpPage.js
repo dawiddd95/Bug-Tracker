@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 export const InnerWrapper = styled.div`
     width: 500px;
     min-height: 100vh;
-    background-color: ${({ theme }) => theme.background.white};
+    background-color: ${({ theme }) => theme.colors.white};
     transform: scaleX(-1);
 
     @media (max-width: 768px) {

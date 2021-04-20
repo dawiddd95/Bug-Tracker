@@ -35,10 +35,7 @@ const ForgotPasswordForm = () => {
                         placeholder="Email"
                     />
                     <S.FormError name="email" component="span" />
-                    <S.StyledButton 
-                        type="submit" 
-                        backround="white"
-                    >
+                    <S.StyledButton type="submit" >
                         Send password reset email
                     </S.StyledButton>
                 </S.StyledForm>

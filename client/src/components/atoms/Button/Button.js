@@ -4,9 +4,9 @@ import { lighten } from 'polished';
 export const Button = styled.button`
 	height: 32px;
 	padding: 0 15px;
-	background-color: ${({ background, theme }) => background || theme.background.primary};
+	background-color: ${({ background, theme }) => background || theme.primary};
 	background-image: url(${({ icon }) => icon});
-	color: ${({ color, theme }) => color || theme.color.primary};
+	color: ${({ color, theme }) => color || theme.colors.white};
 	border: 0;
 	border-radius: ${({ borderRadius }) => borderRadius || '4px'};
 	font-weight: ${({ theme }) => theme.fontWeight.weight500};
@@ -19,27 +19,34 @@ export const Button = styled.button`
 	transition: 0.3s;
 
 	:hover {
-		background-color: ${({ background, theme }) => background ? lighten('0.1', background) : theme.background.primary};
+		background-color: ${({ theme }) => lighten('0.1', theme.primary)};
+		color: ${({ theme }) => theme.colors.white};
 		transition: 0.3s;
 	}
 
 	${({ fancy }) =>
 		fancy &&
 		css`
-		color: ${({ theme }) => theme.background.grayDark};
-		background-color: ${({ theme }) => theme.background.white};
-		border: ${({ theme }) => theme.border.primary};
+		color: ${({ theme }) => theme.colors.grayDark};
+		background-color: ${({ theme }) => theme.colors.white};
+		border: ${({ theme }) => theme.border};
+
+		:hover {
+			background-color: ${({ theme }) => theme.colors.white};
+			color: ${({ theme }) => theme.colors.grayDark};
+			transition: 0.3s;
+		}
 	`}
 
 	${({ disabled }) =>
 		disabled &&
 		css`
-		color: ${({ theme }) => theme.color.secondary};
-		background-color: ${({ theme }) => theme.background.gray};
-		border: ${({ theme }) => theme.border.primary};
+		color: ${({ theme }) => theme.colors.secondary};
+		background-color: ${({ theme }) => theme.colors.gray};
+		border: ${({ theme }) => theme.border};
 
 		:hover {
-			background-color: ${({ theme }) => theme.background.gray};
+			background-color: ${({ theme }) => theme.colors.gray};
 			cursor: not-allowed;
 		}
 	`}

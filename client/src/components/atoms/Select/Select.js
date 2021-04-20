@@ -7,17 +7,17 @@ export const ReactSelect = styled(Select)`
   outline: 0;
   border-radius: 5px;
   font-weight: 200;
-  color: ${({ theme }) => theme.color.grayDark};
+  color: ${({ theme }) => theme.colors.grayDark};
   transition: 0.3s;
   border-color: #d9d9d9;
 
   &:hover {
     transition: 0.3s;
-    border-color: ${({ theme }) => theme.background.primary};
+    border-color: ${({ theme }) => theme.primary};
   }
 
   &:focus {
     transition: 0.3s;
-    border-color: ${({ theme }) => theme.background.primary};
+    border-color: ${({ theme }) => theme.primary};
   }
 `;

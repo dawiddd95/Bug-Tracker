@@ -1,5 +1,8 @@
 import React from 'react';
+import { defaultTheme } from 'theme/mainTheme';
 
-const NavigationContext = React.createContext(true);
-
-export default NavigationContext;
+export const ThemeContext = React.createContext({
+    theme: defaultTheme,
+    /* eslint-disable */
+    changeTheme: value => {},
+});

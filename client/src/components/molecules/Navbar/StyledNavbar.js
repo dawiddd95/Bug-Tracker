@@ -8,14 +8,13 @@ export const Wrapper = styled.nav`
     width: 200px;
     min-height: 100vh;
     position: fixed;
-    background-color: ${ ({theme}) => theme.background.white};
-    border-right: ${ ({theme}) => `1px solid ${theme.background.border}`};
+    background-color: ${ ({theme}) => theme.colors.white};
+    border-right: ${ ({theme}) => `1px solid ${theme.border}`};
 
     display: flex;
     flex-direction: column;
 `
 
-// additional styles header
 export const StyledHeader = styled(Header)`
     margin: 20px auto 30px auto;
 `
@@ -32,8 +31,8 @@ export const NavbarStyledLink = styled(NavLink)`
     height: 50px;
     margin-bottom: 10px;
     padding: 0 15px;
-    color: ${({ theme }) => theme.background.grayDark};
-    background-color: ${({theme}) => theme.background.white};
+    color: ${({ theme }) => theme.colors.grayDark};
+    background-color: ${({theme}) => theme.colors.white};
     text-decoration: none;
     transition: 0.3s;
 
@@ -42,12 +41,12 @@ export const NavbarStyledLink = styled(NavLink)`
 
     :hover {
         transition: 0.3s;
-        color: ${({ theme }) => theme.background.primary};
+        color: ${({ theme }) => theme.primary};
     }
 
     &.active {
-        background-color: ${({theme}) => lighten('0.3', theme.background.primary)};
-        color: ${({ theme }) => theme.background.primary};
+        background-color: ${({theme}) => lighten('0.3', theme.primary)};
+        color: ${({ theme }) => theme.primary};
     }
 `
 

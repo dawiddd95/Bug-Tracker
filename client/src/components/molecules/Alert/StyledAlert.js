@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   padding: 16px 24px;
   border-radius: 4px;
   box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
-  background: ${({ theme }) => theme.background.white};
+  background: ${({ theme }) => theme.colors.white};
   line-height: 1.5;
   position: relative;
   margin-bottom: 16px;

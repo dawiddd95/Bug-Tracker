@@ -9,22 +9,22 @@ export const Input = styled(Field)`
 	outline: 0;
 	border-radius: 5px;
 	font-weight: 200;
-	color: ${({ theme }) => theme.background.grayDark};
+	color: ${({ theme }) => theme.colors.grayDark};
 	transition: 0.3s;
 	border: 1px solid #d9d9d9;
 
 	::placeholder {
 		letter-spacing: 1px;
-		color: ${({ theme }) => theme.background.border};
+		color: ${({ theme }) => theme.border};
 	}
 
 	&:hover {
 		transition: 0.3s;
-		border: ${({ theme }) => `1px solid ${theme.background.primary}`};
+		border: ${({ theme }) => `1px solid ${theme.primary}`};
 	}
 
 	&:focus {
 		transition: 0.3s;
-		border: ${({ theme }) => `1px solid ${theme.background.primary}`};
+		border: ${({ theme }) => `1px solid ${theme.primary}`};
 	}
 `

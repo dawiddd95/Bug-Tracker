@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import * as Yup from 'yup';
 import actions from 'app/users/actions';
+import { ThemeContext } from 'context';
 import { profileApi } from 'utils/api';
 import { Formik } from 'formik';
-import { theme } from 'theme/mainTheme';
 import { Input } from 'components/atoms/Input/Input';
 import { Spinner } from 'components/atoms/Spinner/StyledSpinner';
 import Alert from '../Alert/Alert';
@@ -15,6 +15,7 @@ import * as S from './StyledProfileForm';
 
 const ProfileForm = () => {
     const dispatch = useDispatch()
+    const {theme} = useContext(ThemeContext)
     const {loggedUser} = useSelector(state => state.users)
     const [editMode, setEditMode] = useState(false) 
     const [isLoading, setIsLoading] = useState(false)
@@ -119,7 +120,7 @@ const ProfileForm = () => {
                         {!editMode && 
                             <S.StyledButton 
                                 type="button" 
-                                background={theme.background.volcano}
+                                background='#FA541C'
                                 onClick={() => setEditMode(true)}
                             >
                                 Edit
@@ -129,7 +130,7 @@ const ProfileForm = () => {
                             <>
                                 <S.StyledButton 
                                     type="reset" 
-                                    background={theme.background.red}
+                                    background={theme.colors.red}
                                 >
                                     Cancel changes
                                 </S.StyledButton>

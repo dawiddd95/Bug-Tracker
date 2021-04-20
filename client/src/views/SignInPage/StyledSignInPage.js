@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
 export const InnerWrapper = styled.div`
     width: 500px;
     min-height: 100vh;
-    background-color: ${({ theme }) => theme.background.white};
+    background-color: white;
     transform: scaleX(-1);
 
     @media (max-width: 768px) {
@@ -61,7 +61,7 @@ export const Divider = styled.div`
     &:before,
     &:after {
         content: '';
-        color: ${({ theme }) => theme.background.border};
+        color: ${({ theme }) => theme.border};
         display: table-cell;
         position: relative;
         top: 50%;
