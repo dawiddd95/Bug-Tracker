@@ -13,6 +13,10 @@ export const Wrapper = styled.div`
 	padding: 16px 24px;
 	position: relative;
 	width: 400px;
+
+	@media (max-width: 400px) {
+		width: 100%;
+    }
 `;
 
 export const Img = styled.img`

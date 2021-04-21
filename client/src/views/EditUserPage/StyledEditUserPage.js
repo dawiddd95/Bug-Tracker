@@ -7,6 +7,11 @@ export const Wrapper = styled.div`
     overflow-x: hidden;
     padding: 65px 0 0 200px;
     width: 100%;
+
+    @media (max-width: 1022px) {
+		padding: 0;
+        position: static;
+    }
 `;
 
 export const Breadcrumb = styled.div`

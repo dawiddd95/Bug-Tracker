@@ -8,6 +8,11 @@ export const Wrapper = styled.div`
 	padding: 65px 0 0 200px;
 	overflow-x: hidden;
 	width: 100%;
+
+	@media (max-width: 1022px) {
+		padding: 0;
+        position: static;
+    }
 `;
 
 export const Breadcrumb = styled.div`
@@ -33,6 +38,12 @@ export const ButtonsWrapper = styled.div`
 	justify-content: space-between;
 	margin-top: 20px;
 	width: 420px;
+
+	@media (max-width: 550px) {
+		align-items: flex-start;
+		flex-direction: column;
+		height: 170px;
+    }
 `
 
 export const SearchWrapper = styled.div`

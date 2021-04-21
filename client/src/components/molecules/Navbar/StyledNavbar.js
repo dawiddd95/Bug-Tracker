@@ -12,6 +12,12 @@ export const Wrapper = styled.nav`
     min-height: 100vh;
     position: fixed;
     width: 200px;
+
+    @media (max-width: 1022px) {
+        min-height: 100px;
+        position: static;
+        width: 100%;
+    }
 `
 
 export const StyledHeader = styled(Header)`

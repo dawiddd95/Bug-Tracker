@@ -8,6 +8,10 @@ export const StyledForm = styled(Form)`
     flex-direction: column;
     margin-top: 40px;
     width: 50%;
+
+    @media (max-width: 1022px) {
+		width: 95%;
+    }
 `;
 
 export const FormError = styled(ErrorMessage)`

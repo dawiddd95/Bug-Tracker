@@ -9,6 +9,10 @@ export const StyledForm = styled(Form)`
     flex-direction: column;
     margin-top: 50px;
     width: 50%;
+
+    @media (max-width: 1022px) {
+		width: 95%;
+    }
 `;
 
 export const FormError = styled(ErrorMessage)`
@@ -26,6 +30,12 @@ export const ButtonsWrapper = styled.div`
     justify-content: flex-start;
     margin-top: 20px;
     width: 100%;
+
+    @media (max-width: 400px) {
+		flex-direction: column;
+        justify-content: space-between;
+        height: 100px;
+    }
 `
 
 export const StyledButton = styled(Button)`

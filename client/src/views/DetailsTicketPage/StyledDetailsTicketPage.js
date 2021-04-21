@@ -7,6 +7,11 @@ export const Wrapper = styled.div`
     min-height: 100vh;
     padding: 65px 0 0 200px;
     width: 100%;
+
+    @media (max-width: 1022px) {
+		padding: 10px 0 0 0;
+        position: static;
+    }
 `;
 
 export const Breadcrumb = styled.div`
@@ -31,7 +36,13 @@ export const ButtonsWrapper = styled.div`
 	display: flex;
 	justify-content: space-between;
 	margin: 20px 0 40px 0;
-	width: 360px;
+	width: 220px;
+
+    @media (max-width: 550px) {
+		align-items: flex-start;
+		flex-direction: column;
+		height: 70px;
+    }
 `
 
 export const DetailsWrapper = styled.div`
@@ -39,16 +50,29 @@ export const DetailsWrapper = styled.div`
     flex-direction: column;
     margin: 40px 60px 60px 60px;
     width: 100%;
+
+    @media (max-width: 1022px) {
+		margin: 40px 20px;
+    }
 `
 
 export const DetailsRow = styled.div`
     align-items: center;
     display: flex;
     justify-content: flex-start;
+
+    @media (max-width: 600px) {
+        align-items: flex-start;
+		flex-direction: column;
+    }
 `
 
 export const StyledStrong = styled(Strong)`
     margin-right: 20px;
     text-align: right;
     width: 200px;
+
+    @media (max-width: 600px) {
+        text-align: left;
+    }
 `

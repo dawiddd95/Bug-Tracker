@@ -7,7 +7,7 @@ import * as S from './StyledTable';
 const Table = ({data, columns, isLoading}) => {
     return (
         <S.Wrapper>
-            <TableAntd dataSource={data} columns={columns} loading={isLoading} />
+            <TableAntd dataSource={data} columns={columns} loading={isLoading} scroll={{ x: 1024 }} />
         </S.Wrapper>
     );
 }

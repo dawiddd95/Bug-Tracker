@@ -6,6 +6,11 @@ export const Wrapper = styled.div`
     min-height: 100vh;
     padding: 65px 0 0 200px;
     width: 100%;
+
+    @media (max-width: 1022px) {
+		padding: 10px 0 0 0;
+        position: static;
+    }
 `;
 
 export const Breadcrumb = styled.div`
@@ -32,4 +37,10 @@ export const FormWrapper = styled.div`
     margin: 30px;
     padding: 30px;
     width: 50%;
+
+    @media (max-width: 1022px) {
+        margin: 30px 0;
+        padding: 30px 0;
+        width: 95%;
+    }
 `

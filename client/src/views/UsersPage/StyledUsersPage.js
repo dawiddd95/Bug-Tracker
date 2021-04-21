@@ -9,6 +9,11 @@ export const Wrapper = styled.div`
 	padding: 65px 0 0 200px;
 	background-color: #f0f2f5;
 	overflow-x: hidden;
+
+	@media (max-width: 1022px) {
+		padding: 0;
+        position: static;
+    }
 `;
 
 export const Breadcrumb = styled.div`
