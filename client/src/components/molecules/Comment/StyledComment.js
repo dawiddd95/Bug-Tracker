@@ -2,17 +2,17 @@ import styled from 'styled-components';
 
 
 export const Wrapper = styled.div`
-    width: 50%;
-    margin-bottom: 20px;
-    border-radius: .375em;
     border: ${({ theme }) => `1px solid ${theme.primary}`};
     border-left: ${({ theme }) => `8px solid ${theme.primary}`};
+    border-radius: .375em;
+    margin-bottom: 20px;
+    width: 50%;
 `;
 
 export const HeaderWrapper = styled.div`
+    border-bottom: ${({ theme }) => `1px dotted ${theme.primary}`};
     margin: 0 60px 0 20px;
     padding: 20px;
-    border-bottom: ${({ theme }) => `1px dotted ${theme.primary}`};
 `
 
 export const BodyWrapper = styled.div`

@@ -21,25 +21,25 @@ export const StyledSpan = styled(Span)`
 `
 
 export const InnerWrapper = styled.div`
-	width: 95%;
-	margin: 16px auto;
-	padding: 24px;
 	background-color: ${({ theme }) => theme.colors.white};
 	border-radius: 5px;
 	height: 100%;
+	margin: 16px auto;
+	padding: 24px;
+	width: 95%;
 `;
 
 export const ButtonsWrapper = styled.div`
-	width: 420px;
-	margin-top: 20px;
 	display: flex;
 	justify-content: space-between;
+	margin-top: 20px;
+	width: 420px;
 `
 
 export const StyledButton = styled(Button)`
-	padding: 0;
 	height: auto;
 	margin: 10px 0;
+	padding: 0;
 `
 
 export const Link = styled(StyledLink)`

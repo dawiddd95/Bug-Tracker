@@ -1,22 +1,22 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-  width: 400px;
-  height: auto;
-  margin-left: auto;
-  padding: 16px 24px;
-  border-radius: 4px;
-  box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
-  background: ${({ theme }) => theme.colors.white};
-  line-height: 1.5;
-  position: relative;
-  margin-bottom: 16px;
-  overflow: hidden;
-  display: flex;
+	background: ${({ theme }) => theme.colors.white};
+	border-radius: 4px;
+	box-shadow: 0 4px 12px rgb(0 0 0 / 15%);
+	display: flex;
+	height: auto;
+	line-height: 1.5;
+	margin-bottom: 16px;
+	margin-left: auto;
+	overflow: hidden;
+	padding: 16px 24px;
+	position: relative;
+	width: 400px;
 `;
 
 export const Img = styled.img`
-  width: 25px;
-  height: 25px;
-  margin-right: 20px;
+	height: 25px;
+	margin-right: 20px;
+	width: 25px;
 `;

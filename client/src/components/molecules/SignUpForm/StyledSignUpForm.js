@@ -4,35 +4,35 @@ import { ReactSelect } from 'components/atoms/Select/Select';
 import { Button } from 'components/atoms/Button/Button';
 
 export const StyledForm = styled(Form)`
-    width: 100%;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 100%;
 `;
 
 export const StyledReactSelect = styled(ReactSelect)`
-    width: 100%;
+    font-size: 12px;
     height: 40px;
     margin-bottom: 40px;
-    font-size: 12px;
+    width: 100%;
 `
 
 export const FormError = styled(ErrorMessage)`
-    margin: -10px auto 10px 0;
     color: ${({ theme }) => theme.colors.red};
     font-size: 12px;
+    margin: -10px auto 10px 0;
 `
 
 export const StyledButton = styled(Button)`
-    width: 100%;
-    height: 40px;
     font-size: 14px;
+    height: 40px;
+    width: 100%;
 
     ${({ disabled }) =>
 		disabled &&
 		css`
-		color: ${({ theme }) => theme.colors.white};
 		background-color: ${({ theme }) => theme.primary};
+		color: ${({ theme }) => theme.colors.white};
 		
 		:hover {
 			background-color: ${({ theme }) => theme.primary};

@@ -3,32 +3,32 @@ import { Link } from 'react-router-dom';
 import { lighten } from 'polished';
 
 export const StyledLink = styled(Link)`
+	color: ${({ color, theme }) => color ? theme.primary : theme.colors.grayDark};
 	font-size: 14px;
 	font-weight: ${({ fontWeight, theme }) => fontWeight || theme.fontWeight.weight400};
-	color: ${({ color, theme }) => color ? theme.primary : theme.colors.grayDark};
 	text-decoration: none;
 	transition: 0.3s;
 
 	:hover {
-		transition: 0.3s;
 		color: ${({ theme }) => theme.primary};
+		transition: 0.3s;
 	}
 
   	${({ button }) => button && css`
-		height: 32px;
-		padding: 0 15px;
+	  	align-items: center;
 		background-color: ${({ background, theme }) => background || theme.primary};
 		background-image: url(${({ icon }) => icon});
-		color: ${({ color, theme }) => color || theme.colors.white};
 		border: 0;
 		border-radius: 4px;
-		font-weight: ${({ theme }) => theme.fontWeight.weight500};
-		outline: 0;
+		color: ${({ color, theme }) => color || theme.colors.white};
 		cursor: pointer;
-		font-size: 14px;
 		display: flex;
+		font-size: 14px;
+		font-weight: ${({ theme }) => theme.fontWeight.weight500};
+		height: 32px;
 		justify-content: center;
-		align-items: center;
+		outline: 0;
+		padding: 0 15px;
 		transition: 0.3s;
 
 		:hover {

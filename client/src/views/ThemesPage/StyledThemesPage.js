@@ -4,16 +4,16 @@ import { Header } from 'components/atoms/Header/Header';
 import { Button } from 'components/atoms/Button/Button';
 
 export const Wrapper = styled.div`
-	width: 100%;
-	min-height: 100vh;
-	padding: 65px 0 0 200px;
 	background-color: #f0f2f5;
+	min-height: 100vh;
 	overflow-x: hidden;
+	padding: 65px 0 0 200px;
+	width: 100%;
 `;
 
 export const Breadcrumb = styled.div`
-	width: 95%;
 	margin: 40px auto 0 auto;
+	width: 95%;
 `
 
 export const StyledSpan = styled(Span)`
@@ -21,12 +21,12 @@ export const StyledSpan = styled(Span)`
 `
 
 export const InnerWrapper = styled.div`
-	width: 95%;
-	margin: 16px auto;
-	padding: 24px;
 	background-color: ${({ theme }) => theme.colors.white};
 	border-radius: 5px;
 	height: 100%;
+	margin: 16px auto;
+	padding: 24px;
+	width: 95%;
 `;
 
 export const StyledHeader = styled(Header)`
@@ -40,8 +40,8 @@ export const ButtonsWrapper = styled.div`
 `
 
 export const StyledButton = styled(Button)`
-	width: 300px;
-	height: 150px;
 	font-size: 20px;
+	height: 150px;
 	margin: 0 20px 20px 0;
+	width: 300px;
 `

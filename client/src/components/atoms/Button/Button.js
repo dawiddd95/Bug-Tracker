@@ -2,20 +2,20 @@ import styled, { css } from 'styled-components';
 import { lighten } from 'polished';
 
 export const Button = styled.button`
-	height: 32px;
-	padding: 0 15px;
+	align-items: center;
 	background-color: ${({ background, theme }) => background || theme.primary};
 	background-image: url(${({ icon }) => icon});
-	color: ${({ color, theme }) => color || theme.colors.white};
 	border: 0;
 	border-radius: ${({ borderRadius }) => borderRadius || '4px'};
-	font-weight: ${({ theme }) => theme.fontWeight.weight500};
-	outline: 0;
+	color: ${({ color, theme }) => color || theme.colors.white};
 	cursor: pointer;
-	font-size: 14px;
 	display: flex;
+	font-size: 14px;
+	font-weight: ${({ theme }) => theme.fontWeight.weight500};
+	height: 32px;
 	justify-content: center;
-	align-items: center;
+	outline: 0;
+	padding: 0 15px;
 	transition: 0.3s;
 
 	:hover {
@@ -27,9 +27,9 @@ export const Button = styled.button`
 	${({ fancy }) =>
 		fancy &&
 		css`
-		color: ${({ theme }) => theme.colors.grayDark};
 		background-color: ${({ theme }) => theme.colors.white};
 		border: ${({ theme }) => theme.border};
+		color: ${({ theme }) => theme.colors.grayDark};
 
 		:hover {
 			background-color: ${({ theme }) => theme.colors.white};
@@ -41,9 +41,9 @@ export const Button = styled.button`
 	${({ disabled }) =>
 		disabled &&
 		css`
-		color: ${({ theme }) => theme.colors.secondary};
 		background-color: ${({ theme }) => theme.colors.gray};
 		border: ${({ theme }) => theme.border};
+		color: ${({ theme }) => theme.colors.secondary};
 
 		:hover {
 			background-color: ${({ theme }) => theme.colors.gray};

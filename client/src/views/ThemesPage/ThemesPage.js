@@ -11,7 +11,7 @@ import * as S from './StyledThemesPage';
 
 
 const ThemesPage = () => {
-    const { theme, changeTheme } = useContext(ThemeContext)
+    const { changeTheme } = useContext(ThemeContext)
 
     return (
         <MainPageTemplate>
@@ -24,7 +24,7 @@ const ThemesPage = () => {
                     <Header>
                         Themes
                     </Header>
-                    <Span style={{color: theme.primary}}>Click through the application to experience the new theme</Span>
+                    <Span color>Click through the application to experience the new theme</Span>
                     <S.ButtonsWrapper>
                         <S.StyledButton background='#3399FE' onClick={() => changeTheme(defaultTheme)}>Default</S.StyledButton>
                         <S.StyledButton background='#13C2C2' onClick={() => changeTheme(cyanTheme)}>Cyan</S.StyledButton>

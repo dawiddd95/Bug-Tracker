@@ -3,26 +3,26 @@ import { Form, ErrorMessage } from 'formik';
 import { Button } from 'components/atoms/Button/Button';
 
 export const StyledForm = styled(Form)`
-    width: 100%;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    width: 100%;
 `;
 
 export const FormError = styled(ErrorMessage)`
-    margin: -10px auto 10px 0;
     color: ${({ theme }) => theme.colors.red};
     font-size: 12px;
+    margin: -10px auto 10px 0;
 `
 
 export const ButtonsWrapper = styled.div`
-    margin-right: auto;
     display: flex;
+    margin-right: auto;
 `
 
 export const StyledButton = styled(Button)`
-    width: 100%;
+    font-size: 14px;
     height: 40px;
     margin-right: 10px;
-    font-size: 14px;
+    width: 100%;
 `

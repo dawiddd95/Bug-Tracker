@@ -2,15 +2,15 @@ import styled from 'styled-components';
 import { Span } from 'components/atoms/Span/Span';
 
 export const Wrapper = styled.div`
-    width: 100%;
+    background-color: #f0f2f5;
     min-height: 100vh;
     padding: 65px 0 0 200px;
-    background-color: #f0f2f5;
+    width: 100%;
 `;
 
 export const Breadcrumb = styled.div`
-    width: 95%;
     margin: 40px auto 0 auto;
+    width: 95%;
 `
 
 export const StyledSpan = styled(Span)`
@@ -18,18 +18,18 @@ export const StyledSpan = styled(Span)`
 `
 
 export const InnerWrapper = styled.div`
-    width: 95%;
-    margin: 16px auto;
-    padding: 24px;
     background-color: ${({ theme }) => theme.colors.white};
     border-radius: 5px;
     height: 100%;
+    margin: 16px auto;
+    padding: 24px;
+    width: 95%;
 `;
 
 export const FormWrapper = styled.div`
-    width: 50%;
-    margin: 30px;
     border: 1px solid;
     border: 0;
+    margin: 30px;
     padding: 30px;
+    width: 50%;
 `

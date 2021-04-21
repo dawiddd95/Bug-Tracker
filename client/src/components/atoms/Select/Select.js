@@ -2,22 +2,22 @@ import styled from 'styled-components';
 import Select from 'react-select';
 
 export const ReactSelect = styled(Select)`
-  height: 40px;
-  width: 200px;
-  outline: 0;
-  border-radius: 5px;
-  font-weight: 200;
-  color: ${({ theme }) => theme.colors.grayDark};
-  transition: 0.3s;
-  border-color: #d9d9d9;
+	border-color: #d9d9d9;
+	border-radius: 5px;
+	color: ${({ theme }) => theme.colors.grayDark};
+	font-weight: 200;
+	height: 40px;
+	outline: 0;
+	transition: 0.3s;
+	width: 200px;
 
-  &:hover {
-    transition: 0.3s;
-    border-color: ${({ theme }) => theme.primary};
-  }
+  	&:hover {
+		border-color: ${({ theme }) => theme.primary};
+		transition: 0.3s;
+  	}
 
-  &:focus {
-    transition: 0.3s;
-    border-color: ${({ theme }) => theme.primary};
-  }
+	&:focus {
+		border-color: ${({ theme }) => theme.primary};
+		transition: 0.3s;
+	}
 `;

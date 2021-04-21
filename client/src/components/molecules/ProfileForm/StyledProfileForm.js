@@ -4,17 +4,17 @@ import { Button } from 'components/atoms/Button/Button';
 import { Span } from 'components/atoms/Span/Span';
 
 export const StyledForm = styled(Form)`
-    width: 50%;
-    margin-top: 50px;
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    margin-top: 50px;
+    width: 50%;
 `;
 
 export const FormError = styled(ErrorMessage)`
-    margin: -10px auto 10px 0;
     color: ${({ theme }) => theme.colors.red};
     font-size: 12px;
+    margin: -10px auto 10px 0;
 `
 
 export const StyledSpan = styled(Span)`
@@ -22,18 +22,18 @@ export const StyledSpan = styled(Span)`
 `
 
 export const ButtonsWrapper = styled.div`
-    width: 100%;
-    margin-top: 20px;
     display: flex;
     justify-content: flex-start;
+    margin-top: 20px;
+    width: 100%;
 `
 
 export const StyledButton = styled(Button)`
+    background-color: ${({ background }) => background};
+    font-size: 14px;
+    height: 40px;
     margin-right: 20px;
     padding: 0 20px;
-    height: 40px;
-    font-size: 14px;
-    background-color: ${({ background }) => background};
 
     :hover {
         background-color: ${({ background }) => background};

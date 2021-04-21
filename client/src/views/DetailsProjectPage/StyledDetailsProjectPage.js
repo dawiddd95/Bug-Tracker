@@ -3,15 +3,15 @@ import { Span } from 'components/atoms/Span/Span';
 import { Strong } from 'components/atoms/Strong/Strong';
 
 export const Wrapper = styled.div`
-    width: 100%;
+    background-color: #f0f2f5;
     min-height: 100vh;
     padding: 65px 0 0 200px;
-    background-color: #f0f2f5;
+    width: 100%;
 `;
 
 export const Breadcrumb = styled.div`
-    width: 95%;
     margin: 40px auto 0 auto;
+    width: 95%;
 `
 
 export const StyledSpan = styled(Span)`
@@ -19,37 +19,36 @@ export const StyledSpan = styled(Span)`
 `
 
 export const InnerWrapper = styled.div`
-    width: 95%;
-    margin: 16px auto;
-    padding: 24px;
     background-color: ${({ theme }) => theme.colors.white};
     border-radius: 5px;
     height: 100%;
+    margin: 16px auto;
+    padding: 24px;
+    width: 95%;
 `;
 
 export const ButtonsWrapper = styled.div`
-	width: 360px;
-	margin: 20px 0 40px 0;
 	display: flex;
 	justify-content: space-between;
+	margin: 20px 0 40px 0;
+	width: 360px;
 `
 
 export const DetailsWrapper = styled.div`
-    width: 100%;
-    margin: 40px 60px 60px 60px;
-
     display: flex;
     flex-direction: column;
+    margin: 40px 60px 60px 60px;
+    width: 100%;
 `
 
 export const DetailsRow = styled.div`
+    align-items: center;
     display: flex;
     justify-content: flex-start;
-    align-items: center;
 `
 
 export const StyledStrong = styled(Strong)`
-    width: 200px;
     margin-right: 20px;
     text-align: right;
+    width: 200px;
 `

@@ -1,19 +1,19 @@
 import styled from 'styled-components';
 
 export const Wrapper = styled.div`
-    width: 100%;
-    position: fixed;
+    background-color: ${({ theme }) => theme.colors.white};
+    border-bottom: ${({ theme }) => `1px solid ${theme.border}`};
     display: flex;
     justify-content: flex-end;
-    border-bottom: ${({ theme }) => `1px solid ${theme.border}`};
-    background-color: ${({ theme }) => theme.colors.white};
+    position: fixed;
+    width: 100%;
 `;
 
 export const InnerWrapper = styled.div`
-	width: 100%;
+	align-items: center;
 	display: flex;
 	justify-content: flex-end;
-	align-items: center;
+	width: 100%;
 `;
 
 export const LanguageSelectWrapper = styled.div`

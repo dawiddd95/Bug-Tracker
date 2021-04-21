@@ -5,20 +5,20 @@ import { Span } from 'components/atoms/Span/Span';
 import { StyledLink } from 'components/atoms/Link/Link';
 
 export const Wrapper = styled.div`
-    width: 100%;
-    min-height: 100vh;
     background-image: url(${backgroundImg});
-    background-size: cover;
     background-position: center;
-    transform: scaleX(-1);
+    background-size: cover;
+    min-height: 100vh;
     overflow: hidden;
+    transform: scaleX(-1);
+    width: 100%;
 `
 
 export const InnerWrapper = styled.div`
-    width: 500px;
-    min-height: 100vh;
     background-color: white;
+    min-height: 100vh;
     transform: scaleX(-1);
+    width: 500px;
 
     @media (max-width: 768px) {
         width: 100%;
@@ -35,13 +35,13 @@ export const AuthContentWrapper = styled.div`
 `
 
 export const StyledHeader = styled(Header)`
-    text-align: center;
     margin-bottom: 70px;
+    text-align: center;
 `
 
 export const InformationTextWrapper = styled.div`
-    margin: 26px 0;
     font-size: 14px;
+    margin: 26px 0;
     text-align: center;
 
     span {
@@ -50,47 +50,46 @@ export const InformationTextWrapper = styled.div`
 `
 
 export const Divider = styled.div`
-    display: table;
-    white-space: nowrap;
-    text-align: center;
     background: transparent;
-    font-weight: 500;
-    
+    display: table;
     font-size: 16px;
-
+    font-weight: 500;
+    text-align: center;
+    white-space: nowrap;
+    
     &:before,
     &:after {
-        content: '';
+        border-top: 1px solid #e8e8e8;
         color: ${({ theme }) => theme.border};
+        content: '';
         display: table-cell;
         position: relative;
         top: 50%;
-        width: 50%;
-        border-top: 1px solid #e8e8e8;
         transform: translateY(50%);
+        width: 50%;
     }
 `
 
 export const StyledSpan = styled(Span)`
-    padding: 0 24px;
     font-size: 16px;
+    padding: 0 24px;
 `
 
 export const Link = styled(StyledLink)`
-    width: 100%;
-    margin: 40px auto 30px auto;
     display: flex;
     justify-content: center;
+    margin: 40px auto 30px auto;
+    width: 100%;
 `
 
 export const LanguageWrapper = styled.div`
-    width: 100%;
     display: flex;
     justify-content: center;
+    width: 100%;
 `
 
 export const Img = styled.img`
-    width: 30px;
     height: 30px;
     margin: 0 10px;
+    width: 30px;
 `

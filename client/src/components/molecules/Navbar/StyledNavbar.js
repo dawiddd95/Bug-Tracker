@@ -5,14 +5,13 @@ import { Header } from 'components/atoms/Header/Header';
 import { ButtonIcon } from 'components/atoms/ButtonIcon/ButtonIcon';
 
 export const Wrapper = styled.nav`
-    width: 200px;
-    min-height: 100vh;
-    position: fixed;
     background-color: ${ ({theme}) => theme.colors.white};
     border-right: ${ ({theme}) => `1px solid ${theme.border}`};
-
     display: flex;
     flex-direction: column;
+    min-height: 100vh;
+    position: fixed;
+    width: 200px;
 `
 
 export const StyledHeader = styled(Header)`
@@ -20,28 +19,26 @@ export const StyledHeader = styled(Header)`
 `
 
 export const LinksWrapper = styled.div`
-    width: 100%;
-    margin: 0 auto;
-
     display: flex;
     flex-direction: column;
+    margin: 0 auto;
+    width: 100%; 
 ` 
 
 export const NavbarStyledLink = styled(NavLink)`
+    align-items: center;
+    background-color: ${({theme}) => theme.colors.white};
+    color: ${({ theme }) => theme.colors.grayDark};
+    display: flex;
     height: 50px;
     margin-bottom: 10px;
     padding: 0 15px;
-    color: ${({ theme }) => theme.colors.grayDark};
-    background-color: ${({theme}) => theme.colors.white};
     text-decoration: none;
     transition: 0.3s;
 
-    display: flex;
-    align-items: center;
-
     :hover {
-        transition: 0.3s;
         color: ${({ theme }) => theme.primary};
+        transition: 0.3s;
     }
 
     &.active {
@@ -51,6 +48,6 @@ export const NavbarStyledLink = styled(NavLink)`
 `
 
 export const StyledButtonIcon = styled(ButtonIcon)`
-    width: 20px;
     height: 20px;
+    width: 20px;
 `
