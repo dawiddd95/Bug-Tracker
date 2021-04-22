@@ -1,9 +1,10 @@
 import React from 'react';
-import { Router } from 'react-router-dom';
+import { BrowserRouter, Router, Route  } from 'react-router-dom';
 import { createMemoryHistory } from 'history';
 import { renderWithRouter } from 'testUtils';
 import { fireEvent } from '@testing-library/dom';
 import AccountMenu from 'components/molecules/AccountMenu/AccountMenu';
+
 
 describe('AccountMenu Component', () => {
     it('displays Span Menu', () => {
@@ -64,5 +65,23 @@ describe('AccountMenu Component', () => {
         fireEvent.click(logout)
         
         expect(window.sessionStorage.getItem('session')).toBe(null);
+    })
+
+
+    it('Redirect on logout', async () => {
+        const { getByText, container } = renderWithRouter(
+            <BrowserRouter>
+                <AccountMenu />
+                <Route path='/'>Home page</Route>
+            </BrowserRouter>
+        )
+
+        const menu = getByText(/menu/i)
+        fireEvent.mouseOver(menu)
+
+        const logout = getByText(/Logout/i)
+        fireEvent.click(logout)
+        
+        expect(container).toHaveTextContent(/Home page/);
     })
 })

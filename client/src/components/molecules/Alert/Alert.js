@@ -7,19 +7,19 @@ import { Span } from 'components/atoms/Span/Span';
 import * as S from './StyledAlert';
 
 const Alert = ({ type, txt }) => {
-  return (
-    <Fade right>
-      <S.Wrapper>
-        <S.Img src={type === 'error' ? errorIcon : successIcon} />
-        <Span>{txt}</Span>
-      </S.Wrapper>
-    </Fade>
-  );
+	return (
+		<Fade right>
+			<S.Wrapper>
+				<S.Img src={type === 'error' ? errorIcon : successIcon} />
+				<Span>{txt}</Span>
+			</S.Wrapper>
+		</Fade>
+	);
 };
 
 Alert.propTypes = {
-  type: PropTypes.string.isRequired,
-  txt: PropTypes.string.isRequired,
+	type: PropTypes.string.isRequired,
+	txt: PropTypes.string.isRequired,
 };
 
 export default Alert;

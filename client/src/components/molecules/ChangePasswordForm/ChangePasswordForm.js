@@ -68,18 +68,18 @@ const ChangePasswordForm = ({id}) => {
                         name="password"
                         placeholder="Password"
                     />
-                    <S.FormError name="password" component="span" />
+                    <S.FormError name="password" component="span"/>
                     <Input 
                         type="password"
                         name="confirmPassword"
                         placeholder="Confirm password"
                     />
-                    <S.FormError name="confirmPassword" component="span" />
+                    <S.FormError name="confirmPassword" component="span"/>
                     <S.StyledButton 
                         type="submit"
                         disabled={isLoading} 
                     >
-                        {isLoading && <Spinner />}
+                        {isLoading && <Spinner data-testid='spinner' />}
                         Change password
                     </S.StyledButton>
                 </S.StyledForm>
