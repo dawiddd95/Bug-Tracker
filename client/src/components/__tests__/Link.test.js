@@ -2,17 +2,15 @@ import React from 'react';
 import { Router } from 'react-router-dom';
 import { fireEvent } from '@testing-library/dom';
 import { createMemoryHistory } from 'history';
-// import { ThemeProvider } from 'styled-components';
+import { ThemeProvider } from 'styled-components';
 import { renderWithRouter } from 'testUtils';
-// import { defaultTheme } from 'theme/mainTheme';
+import { defaultTheme } from 'theme/mainTheme';
 import { StyledLink } from 'components/atoms/Link/Link';
 
 describe('Link Component', () => {
     it('Renders children text', () => {
         const { getByText } = renderWithRouter(
-            // <ThemeProvider theme={defaultTheme}>
-                <StyledLink to='/new'>Forgot your password?</StyledLink>
-            // </ThemeProvider>,
+            <StyledLink to='/new'>Forgot your password?</StyledLink>
         );
 
         getByText('Forgot your password?');
@@ -26,9 +24,9 @@ describe('Link Component', () => {
       
         const { getByText } = renderWithRouter(
             <Router history={history}>
-                {/* <ThemeProvider theme={defaultTheme}> */}
+                <ThemeProvider theme={defaultTheme}>
                     <StyledLink to='/new'>New</StyledLink>
-                {/* </ThemeProvider> */}
+                </ThemeProvider>
             </Router>
         );
       
