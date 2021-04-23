@@ -85,12 +85,14 @@ const ProfileForm = () => {
                         type="text"
                         name="id"
                         disabled
+                        data-testid="id"
                     />
                     <S.StyledSpan>Type:</S.StyledSpan>
                     <Input
                         type="text"
                         name="type"
                         disabled
+                        data-testid="type"
                     />
                     <S.StyledSpan>Name:</S.StyledSpan>
                     <Input

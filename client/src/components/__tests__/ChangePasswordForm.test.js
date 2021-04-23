@@ -3,7 +3,6 @@ import '@testing-library/jest-dom/extend-expect';
 import { renderWithRouter } from 'testUtils';
 import { fireEvent, waitFor} from '@testing-library/react';
 import ChangePasswordForm from 'components/molecules/ChangePasswordForm/ChangePasswordForm';
-import Spinner from 'components/atoms/Spinner/Spinner';
 
 
 describe('ChangePasswordForm Component', () => {
