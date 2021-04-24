@@ -1,6 +1,6 @@
 # Bug tracker
 
-This application is visit Bug tracker. Application may be use to manage projects. Application allow us to creating new projects, new tickets for this projects, creating comments for tickets. Application is based on relational database PostgreSQL, nodeJs on backend side and React on frontend side. 
+This application is Bug tracker. Application may be use to manage projects. Application allow us to creating new projects, new tickets for this projects, creating comments for tickets. Application is based on relational database PostgreSQL, nodeJs on backend side and React on frontend side. 
 
 ## Project Status
 
