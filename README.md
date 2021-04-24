@@ -8,8 +8,8 @@ During development.
 
 ## Table of Contents
 
-* [Getting Started]
-* [Installing]
+* Getting Started
+* Technologies used
 
 ## Getting Started
 
