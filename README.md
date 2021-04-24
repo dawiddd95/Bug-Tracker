@@ -40,8 +40,8 @@ cd server && npm install && cd ../ && cd client && npm install
 6. Go to Bug-Tracker/server/config/database.json and change development
 ```bash
 "development": {
-    "username": "<YOUR POSTGRES USERNAME>",
-    "password": "<YOUR POSTGRES PASSWORD>",
+    "username": "<YOUR POSTGRES USERNAME>",  // for example "username": "postgres",
+    "password": "<YOUR POSTGRES PASSWORD>",   // for example "password": "admin",
     "database": "tracker",
     "host": "127.0.0.1",
     "dialect": "postgres",
@@ -68,7 +68,7 @@ npm start
 ```bash
 npm start
 ```
-2. Store runs on localhost:3000
+3. Store runs on localhost:3000
 
 ## Technologies used
 
